@@ -1,4 +1,57 @@
-/ .voting
-/ 	.centered
-/ 		%h2 Which team will win LEO Beer National Volleyball Cup 2016?
-/ 		%h3 Vote now and you could WIN Iphone 6s
+.panel.panel-default.voting
+	.panel-header
+		.voting-question.text-center
+			%h3.text-uppercase Which team will win LEO Beer National Volleyball Cup 2016?
+			%h4 Vote now and you could <strong>WIN Iphone 6s</strong>!
+	.panel-body
+		.vote-score
+			.row
+				.col-md-1
+				.col-md-2.btn.btn-primary.btn-vote
+					%h1 10%
+					%h4 Lorem Ipsue
+				.col-md-2.btn.btn-warning.btn-vote
+					%h1 25%
+					%h4 Amina baba
+				.col-md-2.btn.btn-primary.btn-vote
+					%h1 5%
+					%h4 Angkor Youth
+				.col-md-2.btn.btn-primary.btn-vote
+					%h1 5%
+					%h4 Angkor Youth
+				.col-md-2.btn.btn-primary.btn-vote
+					%h1 5%
+					%h4 Angkor Youth
+				.col-md-1
+			.row
+				.col-md-1
+				.col-md-2.btn.btn-primary.btn-vote
+					%h1 11%
+					%h4 Lorem Ipsue
+				.col-md-2.btn.btn-primary.btn-vote
+					%h1 24%
+					%h4 Amina baba
+				.col-md-2.btn.btn-primary.btn-vote
+					%h1 5%
+					%h4 Angkor Youth
+				.col-md-2.btn.btn-primary.btn-vote
+					%h1 5%
+					%h4 Angkor Youth
+				.col-md-2.btn.btn-primary.btn-vote
+					%h1 5%
+					%h4 Angkor Youth
+				.col-md-1
+		.clearfix
+		%br
+		.pls-vote
+			.row 
+				.col-md-6
+					%h4.text-left Please login via your fb account to vote
+				.col-md-6
+					%h4.text-right Total Vote: <kbd>19900</kbd>
+		%br			
+		.fb-vote
+			.row
+				.col-md-12
+					=image_tag "btn_loginFB.png"
+
