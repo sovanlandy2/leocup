@@ -1,0 +1,23 @@
+.footer{
+	color: white;
+	.footer-left{
+		display: inline-block;
+		img {
+		  border: 0 none;
+		  display: inline-block;
+		  height: auto;
+		  max-width: 100%;
+		  vertical-align: middle;
+		}
+
+	}
+	.footer-mid {
+		text-align: center;
+		
+	}
+
+	.footer-right{
+		vertical-align: middle;
+		text-align: right;
+	}
+}
