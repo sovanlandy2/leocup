@@ -1,0 +1,22 @@
+$green: rgb(0,166,81);
+.match {
+	.score {
+		font-weight: bold;
+		font-size: 24px;
+	}
+}
+.match-filter {
+	text-align: center;
+	.greybox {
+		padding: 10px;
+		background-color: rgba(100,100,100,0.8);
+		margin: 5px;
+	}
+
+}
+
+.team-name{
+		color: $green;
+		font-weight: bold;
+		font-size: 22px;
+}

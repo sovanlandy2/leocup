@@ -1,0 +1,45 @@
+.panel.panel-primary
+	.panel-heading
+		%h3.text-uppercase.text-center Division A
+	.panel-body
+		.row
+			.col-md-6
+				.list-group
+					.list-group-item.list-group-item-header
+						%h5.team-name GROUP A
+					%a.list-group-item{href: "#"}
+						%p.text-uppercase Union Youth Prey Veng <span class = "glyphicon glyphicon-menu-right"/>
+					%a.list-group-item{href: "#"}
+						%p.text-uppercase Interior Ministry <span class = "glyphicon glyphicon-menu-right"/>
+					%a.list-group-item{href: "#"}
+						%p.text-uppercase Security Guard A <span class = "glyphicon glyphicon-menu-right"/>
+					%a.list-group-item{href: "#"}
+						%p.text-uppercase Kampong Cham Province <span class = "glyphicon glyphicon-menu-right"/>
+			.col-md-6
+				.list-group
+					.list-group-item.list-group-item-header
+						%h5.team-name GROUP B
+					%a.list-group-item{href: "#"}
+						%p.text-uppercase Union Youth Prey Veng <span class = "glyphicon glyphicon-menu-right"/>
+					%a.list-group-item{href: "#"}
+						%p.text-uppercase Interior Ministry <span class = "glyphicon glyphicon-menu-right"/>
+					%a.list-group-item{href: "#"}
+						%p.text-uppercase Security Guard A <span class = "glyphicon glyphicon-menu-right"/>
+					%a.list-group-item{href: "#"}
+						%p.text-uppercase Kampong Cham Province <span class = "glyphicon glyphicon-menu-right"/>
+		.panel.panel-info
+			.panel-heading
+				%h4.text-uppercase.text-center Matches
+			.panel-body
+				.match-filter
+					.btn-group.btn-group-lg
+						%button.btn.btn-success.text-uppercase Day1
+						%button.btn.btn-success.text-uppercase Day2
+						%button.btn.btn-success.text-uppercase Day3
+						%button.btn.btn-success.text-uppercase Day4
+						%button.btn.btn-success.text-uppercase Semi-Final
+						%button.btn.btn-success.text-uppercase Final
+				%hr.divider	
+				= render "share/match"
+				= render "share/match"
+
