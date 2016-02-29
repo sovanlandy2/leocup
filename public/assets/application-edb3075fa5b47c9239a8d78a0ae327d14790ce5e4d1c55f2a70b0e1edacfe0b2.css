@@ -9100,43 +9100,47 @@ section {
 html,
 body {
   height: 100%;
-  background-image: url(/assets/bg_home_full-6ac2fa65e9bc0b8d1e90204b6fdb371355c14bdbe1b823913de0d5af3e7428a4.jpg);
+  background-image: url(/assets/bg_home_full-d4ba913ec3bad4fac4b695232171cc0b137eeb52b6d3259226391a4a9ce23188.jpg);
   background-size: 100%;
   /*background-position: left 50px;*/
   font-family: Oswald;
+  /* Background images are set within the HTML using inline CSS, not here */
 }
-
 /* line 16, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
-.logo {
+html .logo,
+body .logo {
   padding-top: 60px;
   padding-bottom: 20px;
   color: white;
 }
 /* line 19, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
-.logo h2 {
+html .logo h2,
+body .logo h2 {
   font-weight: bold;
 }
 /* line 23, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
-.logo h1 {
+html .logo h1,
+body .logo h1 {
   font: bold 40pt Oswald;
   text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
 }
-
-/* line 39, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
-.carousel,
-.item,
-.active {
+/* line 40, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+html .carousel,
+html .item,
+html .active,
+body .carousel,
+body .item,
+body .active {
   height: 100%;
 }
-
-/* line 45, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
-.carousel-inner {
+/* line 46, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+html .carousel-inner,
+body .carousel-inner {
   height: 100%;
 }
-
-/* Background images are set within the HTML using inline CSS, not here */
-/* line 51, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
-.fill {
+/* line 52, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+html .fill,
+body .fill {
   width: 100%;
   height: 100%;
   background-position: center;
@@ -9145,52 +9149,92 @@ body {
   background-size: cover;
   -o-background-size: cover;
 }
-
-/* line 61, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
-footer {
+/* line 62, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+html footer,
+body footer {
   margin: 50px 0;
 }
 @font-face {
   font-family: "Kantumruy-Light";
-  src: "/assets/Kantumruy-Light-f6d95de5e1c82e10da26df7d1636fd40d3f53003e3abb511450609adc45813c5.ttf" format("truetype");
+  src: url("/assets/Kantumruy-Light-f6d95de5e1c82e10da26df7d1636fd40d3f53003e3abb511450609adc45813c5.ttf") format("truetype");
 }
 @font-face {
   font-family: "Kantumruy-Bold";
-  src: "/assets/Kantumruy-Bold-06e2c000b2c4f177b1e74059999f6e9932f8a4c083368af78bd920f7651e1ee4.ttf" format("truetype");
+  src: url("/assets/Kantumruy-Bold-06e2c000b2c4f177b1e74059999f6e9932f8a4c083368af78bd920f7651e1ee4.ttf") format("truetype");
 }
 @font-face {
   font-family: "Kantumruy-Regular";
-  src: "/assets/Kantumruy-Regular-669fa3916da00e80b9e5715626b71ff845cf919196a1112aa8229d9722338820.ttf" format("truetype");
+  src: url("/assets/Kantumruy-Regular-669fa3916da00e80b9e5715626b71ff845cf919196a1112aa8229d9722338820.ttf") format("truetype");
 }
-/* line 15, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
+@font-face {
+  font-family: "Oswald-Light";
+  src: url("/assets/Oswald-Light-9b12dc881fd3f435d53692d781857933ec0da90c8f8acf29b490ef0ab852d9e3.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Oswald-Bold";
+  src: url("/assets/Oswald-Bold-fddd19f5a6d8e9f5ccf42fa3cb4542db815b05ba14c0b1cd00f484e6c1c431a1.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Oswald-Regular";
+  src: url("/assets/Oswald-Regular-cce43fdf41f6092c71f3c1b14147e3571f3499eb85132aa6a11beb7e7316741e.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dangrek";
+  src: url("/assets/Kh-Dangrek_3-c2a25da8d468359ffb297a195b9f548f68d69962bbc6811d9b6c4e2617996215.ttf") format("truetype");
+}
+/* line 34, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
 .team-name {
   color: #00a651;
   font-size: 22px;
-  font-family: "Kantumruy-Bold";
+  font-family: "Dangrek";
+  font-weight: bold;
 }
 
-/* line 21, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 41, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
 .location-name {
-  font-family: "Kantumruy-Regular";
+  font-family: "Dangrek";
   font-size: 18px;
 }
 
-/* line 26, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 46, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
 .date-style {
-  font-family: "Kantumruy-Light";
+  font-family: "Dangrek";
   font-size: 13px;
 }
 
-/* line 31, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 51, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
 .panel-header-text {
   font-size: 25px;
-  font-family: "Kantumruy-Bold";
+  font-family: "Dangrek";
 }
 
-/* line 35, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 55, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
 .group-text {
   font-size: 18px;
   font-family: "Kantumruy-Bold";
+}
+
+/* line 62, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
+nav ul {
+  background: linear-gradient(180deg, white 0%, #c8c8c8 100%);
+  width: 100%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+/* line 69, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
+nav ul li a {
+  font-family: 'Oswald-Light';
+  color: rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+  font-size: 18px;
+  text-decoration: none;
+}
+
+/* line 77, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
+nav ul li a:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 0, 0, 0.7);
 }
 /* line 1, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/voting.css.scss.erb */
 .voting {

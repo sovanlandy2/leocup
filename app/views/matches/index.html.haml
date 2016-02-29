@@ -1,0 +1,63 @@
+.container
+	.row
+		.col-md-6
+			%h1.text-uppercase Schedule & Results
+		.col-md-6
+			%br
+			.dropdown
+				%button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+					Select Qualifier
+					%span.caret
+				%ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+					- Region.all.each do |r|
+						%li
+							%a{:href => "#"}
+								= r.name
+	.panel.panel-default
+		.panel-heading
+			%p.panel-header-text.text-center.text-danger Phnom Penh Qualifier
+		.panel-body					
+			.row
+				.col-md-3.col-md-offset-4
+					%p.team-name POOL A
+					%hr.divider
+					.row
+						.col-md-12
+							%p Team 1
+					.row
+						.col-md-12
+							%p Team 2
+					.row
+						.col-md-12
+							%p Team 3
+					.row
+						.col-md-12
+							%p Team 4
+				.col-md-3
+					%p.team-name POOL A
+					%hr.divider
+					.row
+						.col-md-12
+							%p Team 1
+					.row
+						.col-md-12
+							%p Team 2
+					.row
+						.col-md-12
+							%p Team 3
+					.row
+						.col-md-12
+							%p Team 4
+		
+			%br	
+			%ul.nav.nav-tabs
+				%li.active{:role => "presentation"}
+					%a{:href => "#"} ALL MATCHES
+				%li{:role => "paresentation"}
+					%a{:href => "#"} COMPLETED MATCHES
+				%li{:role => "presentation"}
+					%a{:href => "#"} UPCOMING MATCHES
+			
+			%br
+			= render "share/match"
+			= render "share/match"

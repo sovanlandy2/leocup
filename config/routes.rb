@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
   end
   root to: 'visitors#index'
+  resources :matches, only: [:index]
   devise_for :users
 end
