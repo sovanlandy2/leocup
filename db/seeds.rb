@@ -17,3 +17,4 @@ regions.each do |name|
 	region = Region.where(name: name).first_or_create!
 end
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

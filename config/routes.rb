@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    DashboardManifest::DASHBOARDS.each do |dashboard_resource|
-      resources dashboard_resource
-    end
-    root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
-  end
+  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root to: 'visitors#index'
   resources :matches, only: [:index]
   devise_for :users

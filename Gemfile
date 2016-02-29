@@ -13,13 +13,23 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-gem 'administrate'
+
+gem 'activeadmin', github: 'activeadmin'
+# Plus integrations with:
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
+
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro'
 gem 'haml-rails'
+gem "paperclip", "~> 4.3"
 gem 'pg'
 gem 'simple_form'
+
+
+
 group :development do
   gem 'better_errors'
   gem 'html2haml'
