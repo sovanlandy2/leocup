@@ -24,7 +24,10 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro'
 gem 'haml-rails'
+
 gem "paperclip", "~> 4.3"
+gem 'aws-sdk'
+
 gem 'pg'
 gem 'simple_form'
 
