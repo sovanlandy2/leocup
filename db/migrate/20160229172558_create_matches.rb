@@ -2,13 +2,13 @@ class CreateMatches < ActiveRecord::Migration
   def change
     create_table :matches do |t|
       t.integer :tournament_id
-      t.integer_id :team_left
-      t.integer_id :team_right
+      t.integer :team_left
+      t.integer :team_right
       t.datetime :match_date
-      t.string :score
+      t.text :score, array: true
       t.string :stage
       t.string :location
-      t.boolean :visible
+      t.boolean :visible, default: true
 
       t.timestamps null: false
     end
@@ -17,3 +17,4 @@ class CreateMatches < ActiveRecord::Migration
     add_index :matches, :team_right
   end
 end
+  

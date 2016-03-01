@@ -15,6 +15,7 @@ group :development do
 end
 
 gem 'activeadmin', github: 'activeadmin'
+gem "cocoon"
 # Plus integrations with:
 gem 'cancan' # or cancancan
 gem 'draper'

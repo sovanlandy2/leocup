@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229093141) do
+ActiveRecord::Schema.define(version: 20160229173401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,23 @@ ActiveRecord::Schema.define(version: 20160229093141) do
   add_index "coaches", ["name"], name: "index_coaches_on_name", using: :btree
   add_index "coaches", ["team_id"], name: "index_coaches_on_team_id", using: :btree
 
+  create_table "matches", force: :cascade do |t|
+    t.integer  "tournament_id"
+    t.integer  "team_left"
+    t.integer  "team_right"
+    t.datetime "match_date"
+    t.text     "score",                                     array: true
+    t.string   "stage"
+    t.string   "location"
+    t.boolean  "visible",       default: true
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "matches", ["team_left"], name: "index_matches_on_team_left", using: :btree
+  add_index "matches", ["team_right"], name: "index_matches_on_team_right", using: :btree
+  add_index "matches", ["tournament_id"], name: "index_matches_on_tournament_id", using: :btree
+
   create_table "players", force: :cascade do |t|
     t.string   "name"
     t.integer  "number"
@@ -77,6 +94,24 @@ ActiveRecord::Schema.define(version: 20160229093141) do
   add_index "players", ["name"], name: "index_players_on_name", using: :btree
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
 
+  create_table "pools", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "tournament_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "pools", ["name"], name: "index_pools_on_name", using: :btree
+  add_index "pools", ["tournament_id"], name: "index_pools_on_tournament_id", using: :btree
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "creation_date"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "regions", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -84,6 +119,16 @@ ActiveRecord::Schema.define(version: 20160229093141) do
   end
 
   add_index "regions", ["name"], name: "index_regions_on_name", using: :btree
+
+  create_table "team_pools", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "pool_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "team_pools", ["pool_id"], name: "index_team_pools_on_pool_id", using: :btree
+  add_index "team_pools", ["team_id"], name: "index_team_pools_on_team_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
@@ -99,6 +144,15 @@ ActiveRecord::Schema.define(version: 20160229093141) do
 
   add_index "teams", ["name"], name: "index_teams_on_name", using: :btree
   add_index "teams", ["region_id"], name: "index_teams_on_region_id", using: :btree
+
+  create_table "tournaments", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "visible"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tournaments", ["name"], name: "index_tournaments_on_name", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

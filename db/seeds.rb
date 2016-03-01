@@ -21,3 +21,10 @@ AdminUser.where(email: 'landy@leocup.com').first_or_create(password: 'landy123',
 AdminUser.where(email: 'dara@leocup.com').first_or_create(password: 'dara1234', password_confirmation: 'dara1234')
 AdminUser.where(email: 'mardy@leocup.com').first_or_create(password: 'mardy123', password_confirmation: 'mardy123')
 AdminUser.where(email: 'moderator@leocup.com').first_or_create(password: 'leocup123', password_confirmation: 'leocup123')
+
+Tournament.where(name: 'Phnom Penh Qualifiers').first_or_create(visible: true)
+Tournament.where(name: 'Kompongcham Qualifiers').first_or_create(visible: true)
+Tournament.where(name: 'Siem Reap Qualifiers').first_or_create(visible: true)
+Tournament.where(name: 'Battambong Qualifiers').first_or_create(visible: true)
+Tournament.where(name: 'Shihanouk Ville Qualifiers').first_or_create(visible: true)
+Tournament.where(name: 'Leo Cup National Volleyball Cup').first_or_create(visible: true)
