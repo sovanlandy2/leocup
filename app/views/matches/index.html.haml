@@ -9,7 +9,7 @@
 					Select Qualifier
 					%span.caret
 				%ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
-					- Region.all.each do |r|
+					- Tournament.all.each do |r|
 						%li
 							%a{:href => "#"}
 								= r.name
@@ -49,15 +49,17 @@
 						.col-md-12
 							%p Team 4
 		
-			%br	
-			%ul.nav.nav-tabs
-				%li.active{:role => "presentation"}
-					%a{:href => "#"} ALL MATCHES
-				%li{:role => "paresentation"}
-					%a{:href => "#"} COMPLETED MATCHES
-				%li{:role => "presentation"}
-					%a{:href => "#"} UPCOMING MATCHES
-			
 			%br
+			.panel.panel-default	
+				%ul.nav.nav-pills.nav-justified
+					%li{:role => "presentation"}
+						%a{:href => "#"} ALL MATCHES
+					%li{:role => "paresentation"}
+						%a{:href => "#"} COMPLETED MATCHES
+					%li{:role => "presentation"}
+						%a{:href => "#"} UPCOMING MATCHES
+			
+			
+			
 			= render "share/match"
 			= render "share/match"
