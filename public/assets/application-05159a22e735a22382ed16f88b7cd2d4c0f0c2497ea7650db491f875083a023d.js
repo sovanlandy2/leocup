@@ -13921,6 +13921,282 @@ return jQuery;
 !function(t){"use strict";"function"==typeof define&&define.amd?define(["jquery","./blueimp-gallery"],t):t(window.jQuery,window.blueimp.Gallery)}(function(t,o){"use strict";t.extend(o.prototype.options,{useBootstrapModal:!0});var e=o.prototype.close,n=o.prototype.imageFactory,i=o.prototype.videoFactory,r=o.prototype.textFactory;t.extend(o.prototype,{modalFactory:function(t,o,e,n){if(!this.options.useBootstrapModal||e)return n.call(this,t,o,e);var i=this,r=this.container.children(".modal"),a=r.clone().show().on("click",function(t){(t.target===a[0]||t.target===a.children()[0])&&(t.preventDefault(),t.stopPropagation(),i.close())}),c=n.call(this,t,function(t){o({type:t.type,target:a[0]}),a.addClass("in")},e);return a.find(".modal-title").text(c.title||String.fromCharCode(160)),a.find(".modal-body").append(c),a[0]},imageFactory:function(t,o,e){return this.modalFactory(t,o,e,n)},videoFactory:function(t,o,e){return this.modalFactory(t,o,e,i)},textFactory:function(t,o,e){return this.modalFactory(t,o,e,r)},close:function(){this.container.find(".modal").removeClass("in"),e.call(this)}})});
 //# sourceMappingURL=bootstrap-image-gallery.min.js.map
 ;
+(function($) {
+
+  var cocoon_element_counter = 0;
+
+  var create_new_id = function() {
+    return (new Date().getTime() + cocoon_element_counter++);
+  }
+
+  var newcontent_braced = function(id) {
+    return '[' + id + ']$1';
+  }
+
+  var newcontent_underscord = function(id) {
+    return '_' + id + '_$1';
+  }
+
+  $(document).on('click', '.add_fields', function(e) {
+    e.preventDefault();
+    var $this                 = $(this),
+        assoc                 = $this.data('association'),
+        assocs                = $this.data('associations'),
+        content               = $this.data('association-insertion-template'),
+        insertionMethod       = $this.data('association-insertion-method') || $this.data('association-insertion-position') || 'before',
+        insertionNode         = $this.data('association-insertion-node'),
+        insertionTraversal    = $this.data('association-insertion-traversal'),
+        count                 = parseInt($this.data('count'), 10),
+        regexp_braced         = new RegExp('\\[new_' + assoc + '\\](.*?\\s)', 'g'),
+        regexp_underscord     = new RegExp('_new_' + assoc + '_(\\w*)', 'g'),
+        new_id                = create_new_id(),
+        new_content           = content.replace(regexp_braced, newcontent_braced(new_id)),
+        new_contents          = [];
+
+
+    if (new_content == content) {
+      regexp_braced     = new RegExp('\\[new_' + assocs + '\\](.*?\\s)', 'g');
+      regexp_underscord = new RegExp('_new_' + assocs + '_(\\w*)', 'g');
+      new_content       = content.replace(regexp_braced, newcontent_braced(new_id));
+    }
+
+    new_content = new_content.replace(regexp_underscord, newcontent_underscord(new_id));
+    new_contents = [new_content];
+
+    count = (isNaN(count) ? 1 : Math.max(count, 1));
+    count -= 1;
+
+    while (count) {
+      new_id      = create_new_id();
+      new_content = content.replace(regexp_braced, newcontent_braced(new_id));
+      new_content = new_content.replace(regexp_underscord, newcontent_underscord(new_id));
+      new_contents.push(new_content);
+
+      count -= 1;
+    }
+
+    if (insertionNode){
+      if (insertionTraversal){
+        insertionNode = $this[insertionTraversal](insertionNode);
+      } else {
+        insertionNode = insertionNode == "this" ? $this : $(insertionNode);
+      }
+    } else {
+      insertionNode = $this.parent();
+    }
+
+    $.each(new_contents, function(i, node) {
+      var contentNode = $(node);
+
+      insertionNode.trigger('cocoon:before-insert', [contentNode]);
+
+      // allow any of the jquery dom manipulation methods (after, before, append, prepend, etc)
+      // to be called on the node.  allows the insertion node to be the parent of the inserted
+      // code and doesn't force it to be a sibling like after/before does. default: 'before'
+      var addedContent = insertionNode[insertionMethod](contentNode);
+
+      insertionNode.trigger('cocoon:after-insert', [contentNode]);
+    });
+  });
+
+  $(document).on('click', '.remove_fields.dynamic, .remove_fields.existing', function(e) {
+    var $this = $(this),
+        wrapper_class = $this.data('wrapper-class') || 'nested-fields',
+        node_to_delete = $this.closest('.' + wrapper_class),
+        trigger_node = node_to_delete.parent();
+
+    e.preventDefault();
+
+    trigger_node.trigger('cocoon:before-remove', [node_to_delete]);
+
+    var timeout = trigger_node.data('remove-timeout') || 0;
+
+    setTimeout(function() {
+      if ($this.hasClass('dynamic')) {
+          node_to_delete.remove();
+      } else {
+          $this.prev("input[type=hidden]").val("1");
+          node_to_delete.hide();
+      }
+      trigger_node.trigger('cocoon:after-remove', [node_to_delete]);
+    }, timeout);
+  });
+
+
+  $(document).on("ready page:load", function() {
+    $('.remove_fields.existing.destroyed').each(function(i, obj) {
+      var $this = $(this),
+          wrapper_class = $this.data('wrapper-class') || 'nested-fields';
+
+      $this.closest('.' + wrapper_class).hide();
+    });
+  });
+
+})(jQuery);
+
+
+var screen_xs = 767;
+
+// an assumption is made here that the targeted div will have a static identifier, like class="navbar"
+// this initializes the navbar on screen load with an appropriate class
+if (window.innerWidth <= screen_xs) {
+	$(".navbar").removeClass("navbar-static-top");
+  $(".navbar").addClass("navbar-fixed-top");
+} else {
+  $(".navbar").removeClass("navbar-fixed-top");
+  $(".navbar").addClass("navbar-static-top");
+}
+
+// if you want these classes to toggle when a desktop user shrinks the browser width to an xs width - or from xs to larger
+$(window).resize(function() {
+  if (window.innerWidth <= screen_xs) {
+    $(".navbar").removeClass("navbar-static-top");
+  	$(".navbar").addClass("navbar-fixed-top");
+  } else {
+    $(".navbar").removeClass("navbar-fixed-top");
+  	$(".navbar").addClass("navbar-static-top");
+  }
+});
+/*
+ * Bootstrap Image Gallery
+ * https://github.com/blueimp/Bootstrap-Image-Gallery
+ *
+ * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+/*global define, window */
+
+
+;(function (factory) {
+  'use strict'
+  if (typeof define === 'function' && define.amd) {
+    define([
+      'jquery',
+      './blueimp-gallery'
+    ], factory)
+  } else {
+    factory(
+      window.jQuery,
+      window.blueimp.Gallery
+    )
+  }
+}(function ($, Gallery) {
+  'use strict'
+
+  $.extend(Gallery.prototype.options, {
+    useBootstrapModal: true
+  })
+
+  var close = Gallery.prototype.close
+  var imageFactory = Gallery.prototype.imageFactory
+  var videoFactory = Gallery.prototype.videoFactory
+  var textFactory = Gallery.prototype.textFactory
+
+  $.extend(Gallery.prototype, {
+    modalFactory: function (obj, callback, factoryInterface, factory) {
+      if (!this.options.useBootstrapModal || factoryInterface) {
+        return factory.call(this, obj, callback, factoryInterface)
+      }
+      var that = this
+      var modalTemplate = this.container.children('.modal')
+      var modal = modalTemplate.clone().show().on('click', function (event) {
+        // Close modal if click is outside of modal-content:
+        if (event.target === modal[0] ||
+          event.target === modal.children()[0]) {
+          event.preventDefault()
+          event.stopPropagation()
+          that.close()
+        }
+      })
+      var element = factory.call(this, obj, function (event) {
+        callback({
+          type: event.type,
+          target: modal[0]
+        })
+        modal.addClass('in')
+      }, factoryInterface)
+      modal.find('.modal-title').text(element.title || String.fromCharCode(160))
+      modal.find('.modal-body').append(element)
+      return modal[0]
+    },
+
+    imageFactory: function (obj, callback, factoryInterface) {
+      return this.modalFactory(obj, callback, factoryInterface, imageFactory)
+    },
+
+    videoFactory: function (obj, callback, factoryInterface) {
+      return this.modalFactory(obj, callback, factoryInterface, videoFactory)
+    },
+
+    textFactory: function (obj, callback, factoryInterface) {
+      return this.modalFactory(obj, callback, factoryInterface, textFactory)
+    },
+
+    close: function () {
+      this.container.find('.modal').removeClass('in')
+      close.call(this)
+    }
+
+  })
+}))
+;
+(function() {
+  this.GoogleAnalytics = (function() {
+    function GoogleAnalytics() {}
+
+    GoogleAnalytics.load = function() {
+      var firstScript, ga;
+      window._gaq = [];
+      window._gaq.push(["_setAccount", GoogleAnalytics.analyticsId()]);
+      ga = document.createElement("script");
+      ga.type = "text/javascript";
+      ga.async = true;
+      ga.src = ("https:" === document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+      firstScript = document.getElementsByTagName("script")[0];
+      firstScript.parentNode.insertBefore(ga, firstScript);
+      if (typeof Turbolinks !== 'undefined' && Turbolinks.supported) {
+        return document.addEventListener("page:change", (function() {
+          return GoogleAnalytics.trackPageview();
+        }), true);
+      } else {
+        return GoogleAnalytics.trackPageview();
+      }
+    };
+
+    GoogleAnalytics.trackPageview = function(url) {
+      if (!GoogleAnalytics.isLocalRequest()) {
+        if (url) {
+          window._gaq.push(["_trackPageview", url]);
+        } else {
+          window._gaq.push(["_trackPageview"]);
+        }
+        return window._gaq.push(["_trackPageLoadTime"]);
+      }
+    };
+
+    GoogleAnalytics.isLocalRequest = function() {
+      return GoogleAnalytics.documentDomainIncludes("local");
+    };
+
+    GoogleAnalytics.documentDomainIncludes = function(str) {
+      return document.domain.indexOf(str) !== -1;
+    };
+
+    GoogleAnalytics.analyticsId = function() {
+      return '';
+    };
+
+    return GoogleAnalytics;
+
+  })();
+
+  GoogleAnalytics.load();
+
+}).call(this);
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -13933,6 +14209,9 @@ return jQuery;
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+
+
 
 
 
