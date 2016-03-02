@@ -15,4 +15,6 @@
     = yield
     = render 'layouts/footer'
     - if mobile_device?
-      .is_mobile
+      :javascript
+        $(".navbar").removeClass("navbar-static-top");
+        $(".navbar").addClass("navbar-fixed-top");

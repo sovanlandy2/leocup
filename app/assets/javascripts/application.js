@@ -15,5 +15,4 @@
 //= require bootstrap-sprockets
 //= require bootstrap-image-gallery.min
 //= require cocoon
-//= require screen
 //= require_tree .
