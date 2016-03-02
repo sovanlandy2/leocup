@@ -1,8 +1,6 @@
-var screen_xs = 767;
-
 // an assumption is made here that the targeted div will have a static identifier, like class="navbar"
 // this initializes the navbar on screen load with an appropriate class
-if (window.innerWidth <= screen_xs) {
+if (TouchDevice) {
 	$(".navbar").removeClass("navbar-static-top");
   $(".navbar").addClass("navbar-fixed-top");
 } else {

@@ -7,10 +7,12 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-  %body
+  %body  
     = render 'layouts/logo'
     = render 'layouts/messages'
     = render 'layouts/navigation'
     /%main{:role => "main"}
     = yield
     = render 'layouts/footer'
+    - if mobile_device?
+      %p hey from mobile

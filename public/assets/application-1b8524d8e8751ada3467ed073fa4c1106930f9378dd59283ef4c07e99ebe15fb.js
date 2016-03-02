@@ -14035,24 +14035,39 @@ return jQuery;
 })(jQuery);
 
 
-var screen-xs = 767;
+var TouchDevice = (function() {
+
+  var presence = null;
+
+  function isPresent() {
+    if (_.isNull(presence)) {
+      presence = $('body').is('.touch_device');
+    }
+    return presence;
+  }
+
+  return { isPresent: isPresent };
+
+})();
 
 // an assumption is made here that the targeted div will have a static identifier, like class="navbar"
 // this initializes the navbar on screen load with an appropriate class
-if (window.innerWidth <= screen-xs) {
-  $(".navbar").addClass("navbar-static-top");
+if (TouchDevice) {
+	$(".navbar").removeClass("navbar-static-top");
+  $(".navbar").addClass("navbar-fixed-top");
 } else {
-  $(".navbar").addClass("navbar-default");
+  $(".navbar").removeClass("navbar-fixed-top");
+  $(".navbar").addClass("navbar-static-top");
 }
 
 // if you want these classes to toggle when a desktop user shrinks the browser width to an xs width - or from xs to larger
 $(window).resize(function() {
-  if (window.innerWidth <= screen-xs) {
-    $(".navbar").removeClass("navbar-default");
-    $(".navbar").addClass("navbar-static-top");
-  } else {
+  if (window.innerWidth <= screen_xs) {
     $(".navbar").removeClass("navbar-static-top");
-    $(".navbar").addClass("navbar-default");
+  	$(".navbar").addClass("navbar-fixed-top");
+  } else {
+    $(".navbar").removeClass("navbar-fixed-top");
+  	$(".navbar").addClass("navbar-static-top");
   }
 });
 /*
