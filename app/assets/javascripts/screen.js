@@ -1,6 +1,7 @@
 // an assumption is made here that the targeted div will have a static identifier, like class="navbar"
 // this initializes the navbar on screen load with an appropriate class
-if (TouchDevice) {
+
+if ($("#is_mobile").length !== 0) {
 	$(".navbar").removeClass("navbar-static-top");
   $(".navbar").addClass("navbar-fixed-top");
 } else {
