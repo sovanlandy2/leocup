@@ -9232,6 +9232,22 @@ nav ul li a {
 nav ul li a:hover {
   color: rgba(0, 0, 0, 0.7);
 }
+
+/* line 82, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
+.page-title {
+  font-family: 'Oswald-Regular';
+  font-size: 24px;
+  color: white;
+  text-shadow: 0 3px 4px rgba(10, 10, 10, 0.6);
+}
+
+/* line 89, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/share.css.scss.erb */
+.filter-title {
+  font-family: 'Oswald-Light';
+  font-size: 18px;
+  color: white;
+  text-shadow: 0 3px 4px rgba(10, 10, 10, 0.6);
+}
 /* line 1, /Users/sovanlandypheng/rails_projects/leocup/app/assets/stylesheets/voting.css.scss.erb */
 .voting {
   background-image: url(/assets/bg_vote-02fc40aec2886600b3175ba5f55df373c83746644dc424fbc869eda4a6e38550.jpg);

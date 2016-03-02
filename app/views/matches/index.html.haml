@@ -1,23 +1,19 @@
 .container
-	%p.page-title.text-uppercase Schedule & Results
-	.row
-		.col-md-12
-			%br
-			.dropdown
-				%button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-					Select Qualifier
-					%span.caret
-				%ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
-					- Tournament.all.each do |r|
-						%li
-							%a{:href => "#"}
-								= r.name
-	.panel.panel-default
+	.panel.panel-primary
 		.panel-heading
-			%p.panel-header-text.text-center.text-danger Phnom Penh Qualifier
-		.panel-body					
+			%p.page-title.text-center.text-danger Schedule & Results
+		.panel-body
 			.row
-				.col-md-3.col-md-offset-4
+				.col-md-4
+					.dropdown
+						%button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+							Select Tournament
+							%span.caret
+						%ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+							- Tournament.all.each do |t|
+								%li
+									%a{:href => "#"}= t.name									
+				.col-md-4
 					%p.team-name POOL A
 					%hr.divider
 					.row
@@ -32,21 +28,21 @@
 					.row
 						.col-md-12
 							%p Team 4
-				.col-md-3
-					%p.team-name POOL A
+				.col-md-4
+					%p.team-name POOL B
 					%hr.divider
 					.row
 						.col-md-12
-							%p Team 1
+							%p Team 5
 					.row
 						.col-md-12
-							%p Team 2
+							%p Team 6
 					.row
 						.col-md-12
-							%p Team 3
+							%p Team 7
 					.row
 						.col-md-12
-							%p Team 4
+							%p Team 8
 		
 			%br
 			.panel.panel-default	
@@ -59,6 +55,9 @@
 						%a{:href => "#"} UPCOMING MATCHES
 			
 			
-			
-			= render "share/match"
-			= render "share/match"
+			.panel.panel-default
+				.panel-heading
+					%p.text-uppercase.text-center.red-title Matches
+				.panel-body
+					= render "share/match"
+					= render "share/match"
