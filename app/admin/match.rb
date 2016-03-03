@@ -14,6 +14,7 @@ ActiveAdmin.register Match do
       f.input :match_date, as: :date_time_picker
       f.input :score_raw, label: "Match Score (New Line for each score)", as: :text
       f.input :visible
+      f.input :is_completed
     end
     f.actions
   end
