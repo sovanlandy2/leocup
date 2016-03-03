@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303095240) do
+ActiveRecord::Schema.define(version: 20160303201236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,18 @@ ActiveRecord::Schema.define(version: 20160303095240) do
   end
 
   add_index "regions", ["name"], name: "index_regions_on_name", using: :btree
+
+  create_table "slider_photos", force: :cascade do |t|
+    t.text     "tag",                             array: true
+    t.integer  "order"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.text     "caption"
+  end
 
   create_table "team_pools", force: :cascade do |t|
     t.integer  "team_id"

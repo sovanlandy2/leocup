@@ -4,23 +4,14 @@
 		%li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
 		%li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
 		%li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+		%li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
 	/ Wrapper for Slides
 	.carousel-inner
-		.item.active
-			/ Set the first background image using inline CSS below.
-			.fill{:style => "background-image:url(#{asset_path('carousel3.jpg')});"}
-			.carousel-caption
-				%h2 Caption 1
-		.item
-			/ Set the second background image using inline CSS below.
-			.fill{:style => "background-image:url(#{asset_path('carousel2.jpg')});"}
-			.carousel-caption
-				%h2 Caption 2
-		.item
-			/ Set the third background image using inline CSS below.
-			.fill{:style => "background-image:url(#{asset_path('carousel1.jpg')});"}
-			.carousel-caption
-				%h2 Caption 3
+		- SliderPhoto.all.each do |slide|
+			.item.active
+				.fill{:style => "background-image:url(#{slide.photo.url});"}
+				.carousel-caption
+					%h2= slide.caption
 	/ Controls
 	%a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"}
 		%span.icon-prev

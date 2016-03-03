@@ -6,41 +6,10 @@
 	.panel-body
 		.vote-score
 			.row
-				.col-md-1
-				.col-md-2.btn.btn-primary.btn-vote
-					%h1 10%
-					%h4 Lorem Ipsue
-				.col-md-2.btn.btn-warning.btn-vote
-					%h1 25%
-					%h4 Amina baba
-				.col-md-2.btn.btn-primary.btn-vote
-					%h1 5%
-					%h4 Angkor Youth
-				.col-md-2.btn.btn-primary.btn-vote
-					%h1 5%
-					%h4 Angkor Youth
-				.col-md-2.btn.btn-primary.btn-vote
-					%h1 5%
-					%h4 Angkor Youth
-				.col-md-1
-			.row
-				.col-md-1
-				.col-md-2.btn.btn-primary.btn-vote
-					%h1 11%
-					%h4 Lorem Ipsue
-				.col-md-2.btn.btn-primary.btn-vote
-					%h1 24%
-					%h4 Amina baba
-				.col-md-2.btn.btn-primary.btn-vote
-					%h1 5%
-					%h4 Angkor Youth
-				.col-md-2.btn.btn-primary.btn-vote
-					%h1 5%
-					%h4 Angkor Youth
-				.col-md-2.btn.btn-primary.btn-vote
-					%h1 5%
-					%h4 Angkor Youth
-				.col-md-1
+				-@voted_teams.each do |team, i|
+					.col-md-3.btn.btn-primary.btn-vote
+						%h1 0%
+						%h4= team.name
 		.clearfix
 		%br
 		.pls-vote
@@ -48,7 +17,7 @@
 				.col-md-6
 					%h4.text-left Please login via your fb account to vote
 				.col-md-6
-					%h4.text-right Total Vote: <kbd>19900</kbd>
+					%h4.text-right Total Vote: <kbd>0</kbd>
 		%br			
 		.fb-vote
 			.row
