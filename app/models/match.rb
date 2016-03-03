@@ -20,8 +20,8 @@ class Match < ActiveRecord::Base
 		return nil if date.blank?
 		day = khmer_day date.wday
 		date_string = "#{date.day}/#{date.month}/#{date.year}"
-		time = "#{date.hour}::#{date.minute}"
-		return "#{day} #{date}, #{time}"
+		time = "#{date.hour}:00"
+		return "#{day} #{date_string}, #{time}"
 	end
 
 	def khmer_day i
