@@ -11,7 +11,7 @@
 		%p.score= match.score.first
 		- scores = match.score[1..(match.score.size-1)]
 		- scores.each do |s|
-			%kbd= s
+			%kbd{style: "margin-right: 3px"}= s
 		
 	.col-md-4.text-right
 		%p.location-name= match.team_right.region.name
