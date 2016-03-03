@@ -5,59 +5,34 @@
 		.panel-body
 			.row
 				.col-md-4
+					%p <span class="label label-danger filter-title"> Tournament </span>
 					.dropdown
 						%button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-							Select Tournament
+							%span#dropdownMenu1span.group-text
+								- if @current_tournament.present?
+									= @current_tournament.name
+								- else
+									Select Tournament
 							%span.caret
 						%ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
 							- Tournament.all.each do |t|
 								%li
-									%a{:href => "#"}= t.name									
-				.col-md-4
-					%p.team-name POOL A
-					%hr.divider
-					.row
-						.col-md-12
-							%p Team 1
-					.row
-						.col-md-12
-							%p Team 2
-					.row
-						.col-md-12
-							%p Team 3
-					.row
-						.col-md-12
-							%p Team 4
-				.col-md-4
-					%p.team-name POOL B
-					%hr.divider
-					.row
-						.col-md-12
-							%p Team 5
-					.row
-						.col-md-12
-							%p Team 6
-					.row
-						.col-md-12
-							%p Team 7
-					.row
-						.col-md-12
-							%p Team 8
+									= link_to t.name, refresh_matches_path(id: t.id), remote: true, method: :get, data:{toggle: "dropdown"}, class: "group-text"			
+						%br
+
+				#my_pool
+					= render "pool"
 		
 			%br
 			.panel.panel-default	
 				%ul.nav.nav-pills.nav-justified
 					%li{:role => "presentation"}
-						%a{:href => "#"} ALL MATCHES
+						= link_to "ALL MATCHES", select_matches_matches_path(id: @current_tournament.id), remote: true, method: :get
 					%li{:role => "paresentation"}
-						%a{:href => "#"} COMPLETED MATCHES
+						= link_to "COMPLETED MATCHES", select_matches_matches_path(id: @current_tournament.id, is_completed: true), remote: true, method: :get
 					%li{:role => "presentation"}
-						%a{:href => "#"} UPCOMING MATCHES
+						= link_to "UPCOMING MATCHES", select_matches_matches_path(id: @current_tournament.id, is_completed: false), remote: true, method: :get
 			
-			
-			.panel.panel-default
-				.panel-heading
-					%p.text-uppercase.text-center.red-title Matches
-				.panel-body
-					= render "share/match"
-					= render "share/match"
+			#my_matches
+				= render "select_match"
+					

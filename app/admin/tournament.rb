@@ -29,32 +29,3 @@ ActiveAdmin.register Tournament do
     f.actions
   end
 end
-
-# form do |f|
-#     f.inputs 'Team Profile' do
-#       f.input :name
-#       f.input :region
-#       f.input :description
-#       f.input :avatar, :as => :file , :hint => f.image_tag(f.object.avatar.url(:thumb))
-#     end
-    
-#     f.inputs "Team's Coach" do
-#       f.has_many :coach do |c|
-#         c.input :name
-#         c.input :age
-#         c.input :description
-#         c.input :avatar, :as => :file , :hint => f.image_tag(c.object.avatar.url(:thumb))
-#       end
-#     end
-
-#     f.inputs "Team's Players" do
-#       f.has_many :players do |p|
-#         p.input :name
-#         p.input :number
-#         p.input :height
-#         p.input :role
-#       end
-#     end
-    
-#     f.actions
-#   end

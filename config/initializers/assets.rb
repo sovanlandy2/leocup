@@ -13,3 +13,4 @@ Rails.application.config.assets.version = '1.0'
 %w( #{Rails.root}/vendor/assets/stylesheets/active_admin.css.scss)
 Rails.application.config.assets.precompile += 
 %w( #{Rails.root}/vendor/assets/javascripts/active_admin.js.coffee)
+Rails.application.config.assets.precompile += %w( matches.js )

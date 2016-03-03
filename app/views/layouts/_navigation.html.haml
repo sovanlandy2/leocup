@@ -7,9 +7,12 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        = link_to image_tag("logo_top.png", size: "50x60"), "/", class: "navbar-brand"
+        - if mobile_device?  
+          = link_to image_tag("logo_top.png", size: "50x60"), "/", class: "navbar-brand"
       #navbar.navbar-collapse.collapse{"aria-expanded" => "false", :style => "height: 1px;"}
         %ul.nav.navbar-nav
+          - if !mobile_device?
+            %li= link_to "Home", "/"
           %li
             = link_to "Qualifiers", "teams"
           %li

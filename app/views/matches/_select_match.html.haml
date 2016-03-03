@@ -1,0 +1,6 @@
+.panel.panel-default
+	.panel-heading
+		%p.text-uppercase.text-center.red-title Matches
+	.panel-body
+		- @matches.each do |match|
+			= render "share/match", match: match

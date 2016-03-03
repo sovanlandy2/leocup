@@ -1,0 +1,3 @@
+$("#dropdownMenu1span").text('<%= @current_tournament.name%>');
+var html_string = "<%= escape_javascript render 'pool' %>";
+$("#my_pool").html(html_string);

@@ -2,10 +2,10 @@
 	.panel-heading.text-center.panel-header-text 
 		%p.text-danger <code> លទ្ធផលចុងក្រោយ </code>
 	.panel-body
-		= render "share/match"
-		= render "share/match"
+		- @matches.each do |match|
+			= render "share/match", match: match
 		.row
 			.col-md-12.text-center
 				%button.btn.btn-success
-					SEE ALL RESULT
+					= link_to "SEE ALL RESULT", "/matches", class: ""
 					%span.glyphicon.glyphicon-chevron-right

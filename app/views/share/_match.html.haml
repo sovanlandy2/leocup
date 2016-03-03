@@ -1,16 +1,20 @@
+- if (defined?(match)).nil?
+	- match = Match.first
 .row.match
 	.col-md-4.text-left
-		%p.location-name មណ្ឌលរាជធានីភ្នំពេញ
-		%p.team-name យុវជនបុរីកីឡា
+		%p.location-name=match.team_left.region.name
+		%p.team-name= match.team_left.try(:name)
 	.col-md-4.text-center
-		%p.date-style ថ្ងៃអង្គារ 23/02/2016
-		%p.group-text <strong> ពូល A </strong>
-		%p.score 0-3
-		%kbd 10-15
-		%kbd 10-15
-		%kbd 10-15
+		%p.date-style= match.match_date
+		%p.group-text
+			.strong= match.stage
+		%p.score= match.score.first
+		- scores = match.score[1..(match.score.size-1)]
+		- scores.each do |s|
+			%kbd= s
+		
 	.col-md-4.text-right
-		%p.location-name មណ្ឌលសៀមរាប
-		%p.team-name យុវជនសាមគ្គី
+		%p.location-name= match.team_right.region.name
+		%p.team-name= match.team_right.try(:name)
 
 %hr.divider

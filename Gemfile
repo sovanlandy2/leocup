@@ -22,7 +22,9 @@ gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
 
+gem 'bootstrap_form'
 gem 'bootstrap-sass'
+
 gem 'devise'
 gem 'figaro'
 gem 'haml-rails'

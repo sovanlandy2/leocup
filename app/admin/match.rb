@@ -17,4 +17,25 @@ ActiveAdmin.register Match do
     end
     f.actions
   end
+
+  index do
+    
+      column :tournament do |t|
+        t.tournament.try(:name)
+      end
+      column :match_date_sortable, :sortable => 'matches.match_date' do |match|
+        match.match_date
+      end
+      column :team_left do |t|
+        t.team_left.try(:name)
+      end
+      column :match_score do |t|
+        t.score.join("|")
+      end
+      column :team_right do |t|
+        t.team_right.try(:name)
+      end
+      column :is_completed
+    actions
+  end
 end

@@ -1,0 +1,28 @@
+%br
+- tournament = @current_tournament
+- pools = tournament.pools
+
+- if pools.size == 2
+	.col-md-4
+		.list-group
+			.list-group-item.list-group-item-info
+				%p
+				%span.group-text= pools.first.name
+		
+			- pools.first.teams.each do |team|
+				.list-group-item.list-group-item-default
+					%p.group-text= team.name
+	.col-md-4
+		.list-group
+			.list-group-item.list-group-item-danger
+				%p
+				%span.group-text= pools.last.name
+		
+			- pools.last.teams.each do |team|
+				.list-group-item.list-group-item-default
+					%p.group-text= team.name
+- else 
+	.col-md-8
+		.list-group
+			.list-group-item.list-group-item.default
+				%p.text-info.text-uppercase Data is not yet available
