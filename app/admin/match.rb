@@ -2,7 +2,7 @@ ActiveAdmin.register Match do
   
   controller do
     def permitted_params
-      params.permit match: [:tournament_id, :team_left, :team_right, :match_date, :score_raw, :visible]
+      params.permit!
     end
   end
 
