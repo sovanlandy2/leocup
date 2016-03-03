@@ -9124,7 +9124,7 @@ body .logo h1 {
   font: bold 40pt Oswald;
   text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
 }
-/* line 40, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+/* line 41, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
 html .carousel,
 html .item,
 html .active,
@@ -9133,12 +9133,12 @@ body .item,
 body .active {
   height: 100%;
 }
-/* line 46, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+/* line 47, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
 html .carousel-inner,
 body .carousel-inner {
   height: 100%;
 }
-/* line 52, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+/* line 53, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
 html .fill,
 body .fill {
   width: 100%;
@@ -9149,7 +9149,7 @@ body .fill {
   background-size: cover;
   -o-background-size: cover;
 }
-/* line 62, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+/* line 63, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
 html footer,
 body footer {
   margin: 50px 0;
@@ -9182,44 +9182,63 @@ body footer {
   font-family: "Dangrek";
   src: url("/assets/Dangrek-2148e6eaa36456d6a9cdafd19aad553366ac78a2e720556a5710812a57b47782.ttf") format("truetype");
 }
-/* line 34, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
-.team-name {
+/* line 35, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+.region-name {
+  font-size: 22px;
+  font-family: "Dangrek";
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* line 41, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+.team-name a {
   color: #00a651;
   font-size: 22px;
   font-family: "Dangrek";
   font-weight: bold;
+  text-decoration: none;
 }
 
-/* line 41, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 48, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+.team-name a:hover {
+  color: rgba(0, 166, 81, 0.8);
+  font-size: 22px;
+  font-family: "Dangrek";
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(210, 210, 210, 0.6);
+}
+
+/* line 58, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 .location-name {
   font-family: "Dangrek";
   font-size: 18px;
 }
 
-/* line 46, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 63, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 .date-style {
   font-family: "Dangrek";
   font-size: 13px;
 }
 
-/* line 51, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 68, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 .panel-header-text {
   font-size: 25px;
   font-family: "Dangrek";
 }
 
-/* line 55, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 72, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 .group-text {
   font-size: 15px;
   font-family: "Kantumruy-Bold";
 }
 
-/* line 61, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 78, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 nav {
   /*background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(220, 220, 220, 0.9) 100%);*/
 }
 
-/* line 69, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 87, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 nav ul li a {
   font-family: 'Oswald-Light';
   color: rgba(0, 0, 0, 0.9);
@@ -9228,12 +9247,12 @@ nav ul li a {
   text-decoration: none;
 }
 
-/* line 77, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 95, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 nav ul li a:hover {
   color: rgba(0, 0, 0, 0.7);
 }
 
-/* line 82, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 100, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 .page-title {
   font-family: 'Oswald-Regular';
   font-size: 24px;
@@ -9241,7 +9260,7 @@ nav ul li a:hover {
   text-shadow: 0 3px 4px rgba(10, 10, 10, 0.6);
 }
 
-/* line 89, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 107, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 .filter-title {
   font-family: 'Oswald-Light';
   font-size: 18px;
@@ -9249,7 +9268,7 @@ nav ul li a:hover {
   text-shadow: 0 3px 4px rgba(10, 10, 10, 0.6);
 }
 
-/* line 95, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 113, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 .red-title {
   font-family: 'Oswald-Light';
   font-size: 18px;

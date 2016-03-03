@@ -8,7 +8,7 @@
 		.panel-body
 			.row
 				.col-md-12
-					= image_tag @current_team.avatar(:medium)
+					= image_tag @current_team.avatar.url, class: "thumbnail"
 			%br
 			.row
 				.col-md-12
@@ -25,17 +25,21 @@
 								%h4.media-heading= @current_coach.name
 									
 								%p=@current_coach.description || "No Description"
+					- else
+						.well.text-info No Data Available for Coach
 
 				.col-md-6
 					%p.text-uppercase.text-center.red-title Players
-					.list-group
-						.list-group-item 
-							%table
-								- @current_team.players.each do |player|
-									%tr
-										%td{style: "width: 20%; padding-right: 10px;"}= player.number
-										%td= player.name
-			
+					- if @current_team.players.present?
+						.list-group
+							.list-group-item 
+								%table
+									- @current_team.players.each do |player|
+										%tr
+											%td{style: "width: 20%; padding-right: 10px;"}= player.number
+											%td= player.name
+					- else 
+						.well.text-info No Data Available for Player
 
 			.panel.panel-default
 				.panel-heading
