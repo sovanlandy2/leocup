@@ -5,7 +5,7 @@
 		%p.location-name=match.team_left.region.name
 		%p.team-name= match.team_left.try(:name)
 	.col-md-4.text-center
-		%p.date-style= match.match_date
+		%p.date-style= match.match_date_format
 		%p.group-text
 			.strong= match.stage
 		%p.score= match.score.first

@@ -14,4 +14,18 @@ class Match < ActiveRecord::Base
 		self.score = []
 		self.score=values.split("\n")
 	end
+
+	def match_date_format
+		date = self.match_date
+		return nil if date.blank?
+		day = khmer_day date.wday
+		date_string = "#{date.day}/#{date.month}/#{date.year}"
+		time = "#{date.hour}::#{date.minute}"
+		return "#{day} #{date}, #{time}"
+	end
+
+	def khmer_day i
+		data = ['ថ្ងៃចន្ទ', 'ថ្ងៃអង្គារ', 'ថ្ងៃពុធ', 'ថ្ងៃព្រហស្បតិ៍', 'ថ្ងៃសុក្រ', 'ថ្ងៃសៅរ៍', 'ថ្ងៃអាទិត្យ']
+		data[i]		
+	end
 end
