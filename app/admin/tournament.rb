@@ -2,15 +2,59 @@ ActiveAdmin.register Tournament do
   
   controller do
     def permitted_params
-      params.permit tournament: [:name, :visible]
+      params.permit!
     end
   end
 
   form do |f|
-    f.inputs "Coach Detail" do 
+    f.inputs "Tournament Detail" do 
       f.input :name
+      f.input :start_date, as: :date_picker
+      f.input :end_date, as: :date_picker
+      f.input :location
       f.input :visible
+
     end
+
+    f.inputs "Team Pool" do 
+      f.has_many :pools do |pool|
+        pool.input :name, label: "PoolName"
+        pool.has_many :team_pools do |t|
+          t.input :team
+        end
+      end
+
+    end
+
     f.actions
   end
 end
+
+# form do |f|
+#     f.inputs 'Team Profile' do
+#       f.input :name
+#       f.input :region
+#       f.input :description
+#       f.input :avatar, :as => :file , :hint => f.image_tag(f.object.avatar.url(:thumb))
+#     end
+    
+#     f.inputs "Team's Coach" do
+#       f.has_many :coach do |c|
+#         c.input :name
+#         c.input :age
+#         c.input :description
+#         c.input :avatar, :as => :file , :hint => f.image_tag(c.object.avatar.url(:thumb))
+#       end
+#     end
+
+#     f.inputs "Team's Players" do
+#       f.has_many :players do |p|
+#         p.input :name
+#         p.input :number
+#         p.input :height
+#         p.input :role
+#       end
+#     end
+    
+#     f.actions
+#   end

@@ -6,6 +6,5 @@ class Pool < ActiveRecord::Base
 	accepts_nested_attributes_for :team_pools,
            :reject_if => :all_blank,
            :allow_destroy => true
-  accepts_nested_attributes_for :teams
 
 end

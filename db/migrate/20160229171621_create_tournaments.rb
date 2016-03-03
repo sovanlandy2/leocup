@@ -3,6 +3,9 @@ class CreateTournaments < ActiveRecord::Migration
     create_table :tournaments do |t|
       t.string :name
       t.boolean :visible, default: true
+      t.date :start_date
+      t.date :end_date
+      t.string :location
 
       t.timestamps null: false
     end

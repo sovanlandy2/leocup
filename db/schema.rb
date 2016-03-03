@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229173401) do
+ActiveRecord::Schema.define(version: 20160303024040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160229173401) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.text     "description"
   end
 
   add_index "coaches", ["name"], name: "index_coaches_on_name", using: :btree
@@ -66,8 +67,8 @@ ActiveRecord::Schema.define(version: 20160229173401) do
 
   create_table "matches", force: :cascade do |t|
     t.integer  "tournament_id"
-    t.integer  "team_left"
-    t.integer  "team_right"
+    t.integer  "team_left_id"
+    t.integer  "team_right_id"
     t.datetime "match_date"
     t.text     "score",                                     array: true
     t.string   "stage"
@@ -77,8 +78,8 @@ ActiveRecord::Schema.define(version: 20160229173401) do
     t.datetime "updated_at",                   null: false
   end
 
-  add_index "matches", ["team_left"], name: "index_matches_on_team_left", using: :btree
-  add_index "matches", ["team_right"], name: "index_matches_on_team_right", using: :btree
+  add_index "matches", ["team_left_id"], name: "index_matches_on_team_left_id", using: :btree
+  add_index "matches", ["team_right_id"], name: "index_matches_on_team_right_id", using: :btree
   add_index "matches", ["tournament_id"], name: "index_matches_on_tournament_id", using: :btree
 
   create_table "players", force: :cascade do |t|
@@ -147,9 +148,12 @@ ActiveRecord::Schema.define(version: 20160229173401) do
 
   create_table "tournaments", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "visible"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "visible",    default: true
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "location"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "tournaments", ["name"], name: "index_tournaments_on_name", using: :btree
