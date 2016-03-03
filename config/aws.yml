@@ -1,3 +1,6 @@
+development:
+  access_key_id: AKIAI3NHIHBSIGEUZRFQ
+  secret_access_key: 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
 production:
-	access_key_id: AKIAI3NHIHBSIGEUZRFQ
-	secret_access_key: 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
+  access_key_id: AKIAI3NHIHBSIGEUZRFQ
+  secret_access_key: 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
