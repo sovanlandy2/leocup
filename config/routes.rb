@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   	get :select_matches, on: :collection
   end
   resources :posts, only: [:index]
-  resources :teams, only: [:index]
+  
+  resources :teams, only: [:index, :show] do 
+    get :select_region, on: :collection
+    get :select_team, on: :collection
+  end
+
   devise_for :users
 end

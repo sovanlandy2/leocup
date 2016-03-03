@@ -14,3 +14,6 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += 
 %w( #{Rails.root}/vendor/assets/javascripts/active_admin.js.coffee)
 Rails.application.config.assets.precompile += %w( matches.js )
+Rails.application.config.assets.precompile += %w( visitors.js )
+Rails.application.config.assets.precompile += %w( teams.js )
+Rails.application.config.assets.precompile += %w( posts.js )

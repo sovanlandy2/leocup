@@ -8,60 +8,15 @@
 					%p <span class="label label-danger filter-title"> REGIONS </span>
 					.list-group
 						- Region.all.each do |region|
-							= link_to region.name, "", class: "list-group-item team-name"
+							= link_to region.name, select_region_teams_path(region_id: region.id), class: "list-group-item team-name", id: "myregion#{region.id}", remote: true, method: :get
 				.col-md-8
 					%p <span class="label label-success filter-title"> TEAMS </span>
-					.list-group
-						- Team.all.each do |team|
-							= link_to team.name, "", class: "list-group-item list-group-item-default group-text"
+					#myteam
+						= render "teams"
 				
 
-	.panel.panel-primary
-		.panel-heading
-			%p.page-title.text-uppercase.text-center យុវជនសាមគ្គី
-		.panel-body
-			.row
-				.col-md-12
-					= image_tag "team-profile.jpeg"
-			%br
-			.row
-				.col-md-12
-					.panel
-						%p.text-center Mockups, wireframes and prototypes are not so cleanly distinguished in software and systems engineering, where mockups are a way of designing user interfaces on paper or in computer images. A software mockup will thus look like the real thing, but will not do useful work beyond what the user sees. A software prototype, on the other hand, will look and work just like the real thing. In many cases it is best to design or prototype the user interface before source code is written or hardware is built, to avoid having to go back and make expensive changes. Early layouts of a World Wide Web site or pages are often called mockups. A large selection of proprietary or open-source software tools are available for this purpose.
-			.row
-				.col-md-6
-					%p.text-uppercase.text-center.red-title Coach
-					.row
-						.col-md-4
-							= image_tag "coach.jpg", class: "media-object thumbnail"
-						.col-md-8
-							%h4.media-heading
-								Mr. SOK VIBOL, 42
-							%p Mockups, wireframes and prototypes are not so cleanly distinguished in software and systems engineering, where mockups are a way of designing user interfaces on paper or in computer images. A software mockup will thus look like the real thing, but will not do useful work beyond what the user sees. A software prototype, on the other hand, will look and work just like the real thing.
-
-				.col-md-6
-					%p.text-uppercase.text-center.red-title Players
-					.list-group
-						.list-group-item 
-							%table
-								- Player.all.each do |player|
-									%tr
-										%td{style: "width: 20%; padding-right: 10px;"}= player.number
-										%td= player.name
-			
-
-			.panel.panel-default
-				.panel-heading
-					%p.text-uppercase.text-center.red-title Match Results
-				.panel-body
-					= render "share/match"
-					= render "share/match"
-
-			.panel.panel-default
-				.panel-heading
-					%p.text-uppercase.text-center.red-title Photos
-				.panel-body
-					= render "share/gallery"
+	#teamshow
+		= render "team"
 
 		
 

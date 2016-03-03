@@ -11,4 +11,9 @@ class Team < ActiveRecord::Base
 
 	accepts_nested_attributes_for :coach
 	accepts_nested_attributes_for :players
+
+	def team_matches
+		Match.where("team_left_id = ? OR team_right_id = ?", self.id, self.id)
+		     .order("match_date desc")
+	end
 end
