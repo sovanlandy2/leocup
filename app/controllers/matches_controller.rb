@@ -19,9 +19,9 @@ class MatchesController < ApplicationController
 		if !params[:is_completed].present?
 			@matches = @current_tournament.matches.order("match_date desc nulls last")	
 		elsif params[:is_completed].present? && params[:is_completed] == 'true'
-			@matches = @current_tournament.matches.where(is_completed: true).order("match_date desc null last")
+			@matches = @current_tournament.matches.where(is_completed: true).order("match_date desc nulls last")
 		else
-			@matches = @current_tournament.matches.where(is_completed: false).order("match_date asc null last")
+			@matches = @current_tournament.matches.where(is_completed: false).order("match_date asc nulls last")
 		end
 
 		respond_to do |format|
