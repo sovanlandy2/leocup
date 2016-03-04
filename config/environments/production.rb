@@ -84,7 +84,7 @@ Rails.application.configure do
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     },
-    :s3_host_name: "leocup-production.s3.amazonaws.com"
+    :s3_host_name => 'leocup-production.s3.amazonaws.com'
   }
 
 end
