@@ -7,20 +7,20 @@
 		.list-group
 			.list-group-item.list-group-item-info
 				%p
-				%span.group-text= pools.first.name
+				%span.team-name= pools.first.name
 		
 			- pools.first.teams.each do |team|
 				.list-group-item.list-group-item-default
-					%p.group-text= team.name
+					%p.team-name= team.name
 	.col-md-4
 		.list-group
 			.list-group-item.list-group-item-danger
 				%p
-				%span.group-text= pools.last.name
+				%span.team-name= pools.last.name
 		
 			- pools.last.teams.each do |team|
 				.list-group-item.list-group-item-default
-					%p.group-text= team.name
+					%p.team-name= team.name
 - else 
 	.col-md-8
 		.list-group

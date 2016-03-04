@@ -1,7 +1,7 @@
 - if @teams.present?
 	.list-group
 		- @teams.each do |team|
-			= link_to team.name, select_team_teams_path(id: team.id), class: "list-group-item list-group-item-default group-text", id: "team_#{team.id}", remote: true, method: :get
+			= link_to team.name, select_team_teams_path(id: team.id), class: "list-group-item list-group-item-default team-name", id: "team_#{team.id}", remote: true, method: :get
 
 - else
 	.well.text-info No Data Available
