@@ -35,7 +35,7 @@
           - photos.each do |p|
             - if(p == photos.first)
               .item.active
-                %img.first-slide{:alt => "First slide", :src => p.photo(:medium)}
+                %img.first-slide{:alt => "First slide", :src => p.photo}
                 /.fill{:style => "background-image:url(#{p.photo.url});"}
                 .container
                   .carousel-caption
