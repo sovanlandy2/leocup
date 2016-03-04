@@ -38,26 +38,13 @@
                 %img.first-slide{:alt => "First slide", :src => p.photo}
                 /.fill{:style => "background-image:url(#{p.photo.url});"}
                 .container
-                  .carousel-caption
-                    %h1 Example headline.
-                    %p
-                      Note: If you're viewing this page via a
-                      %code file://
-                      URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.
-                    %p
-                      %a.btn.btn-lg.btn-primary{:href => "https://getbootstrap.com/examples/carousel/#", :role => "button"} Sign up today
+                  .carousel-caption= p.caption
             - else
               .item
                 %img.first-slide{:alt => "First slide", :src => p.photo.url}
                   .container
-                    .carousel-caption
-                      %h1 Example headline.
-                      %p
-                        Note: If you're viewing this page via a
-                        %code file://
-                        URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.
-                      %p
-                        %a.btn.btn-lg.btn-primary{:href => "https://getbootstrap.com/examples/carousel/#", :role => "button"} Sign up today
+                    .carousel-caption= p.caption
+                      
           
         %a.left.carousel-control{"data-slide" => "prev", :href => "https://getbootstrap.com/examples/carousel/#myCarousel", :role => "button"}
           %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
