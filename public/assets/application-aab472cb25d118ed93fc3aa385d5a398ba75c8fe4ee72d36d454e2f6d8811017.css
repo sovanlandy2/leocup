@@ -9104,6 +9104,7 @@ body {
   background-size: 100%;
   /*background-position: left 50px;*/
   font-family: Oswald;
+  /* Background images are set within the HTML using inline CSS, not here */
 }
 /* line 16, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
 html .logo,
@@ -9123,7 +9124,41 @@ body .logo h1 {
   font: bold 40pt Oswald;
   text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
 }
-/* line 42, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+/* line 40, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+html .carousel,
+html .item,
+html .active,
+body .carousel,
+body .item,
+body .active {
+  height: 100%;
+}
+/* line 45, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+html .carousel a,
+html .item a,
+html .active a,
+body .carousel a,
+body .item a,
+body .active a {
+  margin: 0% 1.2%;
+}
+/* line 50, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+html .carousel-inner,
+body .carousel-inner {
+  height: 100%;
+}
+/* line 56, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
+html .fill,
+body .fill {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+/* line 66, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/full-slider.css.scss.erb */
 html footer,
 body footer {
   margin: 50px 0;
@@ -9212,7 +9247,7 @@ nav {
   /*background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(220, 220, 220, 0.9) 100%);*/
 }
 
-/* line 87, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 86, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 nav ul li a {
   font-family: 'Oswald-Light';
   color: rgba(0, 0, 0, 0.9);
@@ -9221,12 +9256,12 @@ nav ul li a {
   text-decoration: none;
 }
 
-/* line 95, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 94, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 nav ul li a:hover {
   color: rgba(0, 0, 0, 0.7);
 }
 
-/* line 100, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 99, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 .page-title {
   font-family: 'Oswald-Regular';
   font-size: 24px;
@@ -9234,7 +9269,7 @@ nav ul li a:hover {
   text-shadow: 0 3px 4px rgba(10, 10, 10, 0.6);
 }
 
-/* line 107, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 106, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 .filter-title {
   font-family: 'Oswald-Light';
   font-size: 18px;
@@ -9242,7 +9277,7 @@ nav ul li a:hover {
   text-shadow: 0 3px 4px rgba(10, 10, 10, 0.6);
 }
 
-/* line 113, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
+/* line 112, /Users/sovanlan/rails_project/leocup/app/assets/stylesheets/share.css.scss.erb */
 .red-title {
   font-family: 'Oswald-Light';
   font-size: 18px;
