@@ -2,7 +2,16 @@
 	.panel-heading.text-center.panel-header-text 
 		%p.text-danger <code> លទ្ធផលចុងក្រោយ </code>
 	.panel-body
+		- date = nil
 		- @matches.each do |match|
+			- if (match.match_date.present?)
+				- if date.blank? || (date.present? && date!= match.match_date.to_date)
+					- date = match.match_date.to_date
+					
+					%br
+					.row.group-date
+						.col-md-12.text-center
+							%p.group-date= match.match_date_format
 			= render "share/match", match: match
 		.row
 			.col-md-12.text-center

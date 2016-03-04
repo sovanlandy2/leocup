@@ -19,9 +19,9 @@ class Match < ActiveRecord::Base
 		date = self.match_date
 		return nil if date.blank?
 		day = khmer_day date.wday
-		date_string = "#{date.day}/#{date.month}/#{date.year}"
+		date_string = date.strftime("%d-%m-%Y")
 		time = "#{date.hour}:00"
-		return "#{day} #{date_string}, #{time}"
+		return "#{day} #{date_string}"
 	end
 
 	def khmer_day i
