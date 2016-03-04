@@ -15,4 +15,3 @@
 //= require bootstrap-sprockets
 //= require bootstrap-image-gallery.min
 //= require cocoon
-//= require active_admin_datetimepicker

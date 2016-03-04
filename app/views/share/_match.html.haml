@@ -1,22 +1,32 @@
 - if (defined?(match)).nil?
-	- match = Match.first
-.row.match
-	.col-md-4.text-left
-		%p.location-name=match.team_left.region.name
-		.team-name
-			= link_to match.team_left.try(:name), team_path(match.team_left)
-	.col-md-4.text-center
-		%p.date-style= match.match_date_format
-		%p.group-text
-			.strong= match.stage
-		%p.score= match.score.first
-		- scores = match.score[1..(match.score.size-1)]
-		- scores.each do |s|
-			%kbd{style: "margin-right: 3px"}= s
-		
-	.col-md-4.text-right
-		%p.location-name= match.team_right.region.name
-		.team-name
-			= link_to match.team_right.try(:name), team_path(match.team_right)
+	%p "No match"
+- else
+	.match
+		.row.match-header
+			.col-md-2.text-left
+				%p.region-name= match.team_left.region.name
+			.col-md-2.text-left	
+				- d = match.match_date
+				-if d.present?
+					%p.match-time= "#{d.day}/#{d.month}/#{d.year} #{d.hour}:00"
+			.col-md-4.text-center
+				%p.date-style= "#{match.stage} "
+			.col-md-4.text-right
+				%p.region-name= match.team_right.region.name
+		.row.match-body
+			.col-md-4.text-left
+				.team-name
+					= link_to match.team_left.try(:name), team_path(match.team_left)
+			.col-md-4.text-center
+				%p.score= match.score.first
+				- scores = match.score[1..(match.score.size-1)]
+				
+				- scores.each do |s|
+					%kbd{style: "margin-right: 3px"}= s
+				%p.match-status
+					= match.get_status
+			.col-md-4.text-right
+				.team-name
+					= link_to match.team_right.try(:name), team_path(match.team_right)
 
-%hr.divider
+	

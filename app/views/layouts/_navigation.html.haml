@@ -12,10 +12,10 @@
       #navbar.navbar-collapse.collapse{"aria-expanded" => "false", :style => "height: 1px;"}
         %ul.nav.navbar-nav
           - if !mobile_device?
-            %li= link_to "Home", "/"
+            %li= link_to "Home", "/", class: "text-uppercase"
           %li
-            = link_to "Qualifiers", teams_path
+            = link_to "Qualifiers", teams_path, class: "text-uppercase"
           %li
-            = link_to "Schedule & Result", matches_path
+            = link_to "Schedule & Result", matches_path, class: "text-uppercase"
           %li
-            = link_to "News", "posts"
+            = link_to "News", "posts", class: "text-uppercase"

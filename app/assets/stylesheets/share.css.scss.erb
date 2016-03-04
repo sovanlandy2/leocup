@@ -1,3 +1,5 @@
+
+
 @font-face {
   font-family: "Kantumruy-Light";
   src: url("<%= asset_path('Kantumruy-Light.ttf')%>") format("truetype");
@@ -29,35 +31,29 @@
   src: url("<%= asset_path('Dangrek.ttf')%>") format("truetype"); 
 }
 
-$green: rgba(0,166,81, 1);
+$green: #00a651;
 $green_a: rgba(0,166,81, 0.8);
+$kLight: 'Kantumruy-Light';
+$kRegular: 'Kantumruy-Regular';
+$kBold: 'Kantumruy-Bold';
 
-.region-name {
-  font-size: 22px;
-  font-family: "Dangrek";
-  font-weight: bold;
-  text-decoration: none;
-}
+$engLight: 'Oswald-Light';
+$engRegular: 'Oswald-Regular';
+$engBold: 'Oswald-Bold';
+
+
 .team-name a {
 		color: $green;
-		font-size: 22px;
-		font-family: "Dangrek";
-    font-weight: bold;
+		font-size: 20px;
+		font-family: $kRegular;
     text-decoration: none;
 }
 .team-name a:hover{
     color: $green_a;
-    font-size: 22px;
-    font-family: "Dangrek";
-    font-weight: bold;
+    font-size: 20px;
+    font-family: $kRegular;
     text-decoration: none;
     text-shadow: 0 1px 2px rgba(210,210,210,.6);
-}
-
-
-.location-name {
-	font-family: "Dangrek";		
-	font-size: 18px;
 }
 
 .date-style {
@@ -68,10 +64,6 @@ $green_a: rgba(0,166,81, 0.8);
 .panel-header-text {
 	font-size: 25px;
 	font-family: "Dangrek";	
-}
-.group-text {
-	font-size: 15px;
-	font-family: "Kantumruy-Bold";		
 }
 
 
@@ -104,14 +96,52 @@ nav ul li a:hover {
 }
 
 .filter-title {
-  font-family: 'Oswald-Light'; 
+  font-family: $engLight; 
   font-size: 18px;
   color: rgba(255, 255, 255, 1);
   text-shadow: 0 3px 4px rgba(10,10,10,.6);
 }
 .red-title {
-  font-family: 'Oswald-Light'; 
+  font-family: $engLight; 
   font-size: 18px;
   color: red;
   text-shadow: 0 1px 2px rgba(10,10,10,.6); 
 }
+
+.match{
+  .match-header {
+    background-color: #f1f2f2;
+    color: black;
+    padding-top: 10px;
+    margin: 5px 0px 10px 0px;
+    
+    .region-name {
+      font-size: 12px;
+      font-family: $kRegular;
+      text-decoration: none;
+    }
+
+    .match-time {
+      font-size: 12px;
+      font-family: $kLight;
+      color: rgb(130,130,130);
+    }
+  }
+  .match-body{
+    .match-status{
+      color: $green;
+      font-size: 10px;
+      font-family: $engRegular;
+      margin-top: 10px;
+    }
+  }
+}
+
+.group-date{
+  color: red;
+  font-family: $kBold;
+  font-size: 16px;
+}
+
+
+

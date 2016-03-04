@@ -28,4 +28,8 @@ class Match < ActiveRecord::Base
 		data = ['ថ្ងៃចន្ទ', 'ថ្ងៃអង្គារ', 'ថ្ងៃពុធ', 'ថ្ងៃព្រហស្បតិ៍', 'ថ្ងៃសុក្រ', 'ថ្ងៃសៅរ៍', 'ថ្ងៃអាទិត្យ']
 		data[i]		
 	end
+
+	def get_status
+		self.is_completed?? "Match Completed" : "Upcoming Match"
+	end
 end

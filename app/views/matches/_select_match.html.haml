@@ -2,5 +2,16 @@
 	.panel-heading
 		%p.text-uppercase.text-center.red-title Matches
 	.panel-body
+
+		- date = nil
 		- @matches.each do |match|
+			- if (match.match_date.present?)
+				- if date.blank? || (date.present? && date!= match.match_date.to_date)
+					- date = match.match_date.to_date
+					%br
+					%br
+					.row.group-date
+						.col-md-12.text-center
+							%p.group-date= match.match_date_format
+
 			= render "share/match", match: match
