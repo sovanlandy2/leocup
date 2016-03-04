@@ -15,7 +15,6 @@ group :development do
 end
 
 gem 'activeadmin', github: 'activeadmin'
-gem 'active_admin_datetimepicker'
 gem "cocoon"
 # Plus integrations with:
 gem 'cancan' # or cancancan
