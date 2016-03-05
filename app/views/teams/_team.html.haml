@@ -20,7 +20,7 @@
 					- if @current_coach.present?
 						.row
 							.col-md-4
-								= image_tag "coach.jpg", class: "media-object thumbnail"
+								= image_tag @current_coach.avatar.url(:thumb), class: "media-object thumbnail"
 							.col-md-8
 								%h4.media-heading= @current_coach.name
 									
