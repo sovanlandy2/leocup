@@ -4,7 +4,7 @@
 - else
 	.panel.panel-primary
 		.panel-heading
-			%p.page-title.text-uppercase.text-center= @current_team.name
+			%p.page-title.team-name.text-uppercase.text-center= @current_team.name
 		.panel-body
 			.row
 				.col-md-12
@@ -16,7 +16,7 @@
 						%p.text-center.team-description= @current_team.description
 			.row
 				.col-md-6
-					%p.text-uppercase.text-center.red-title Coach
+					%p.text-uppercase.text-center.red-title គ្រូបង្វឹក
 					- if @current_coach.present?
 						.row
 							.col-md-4
@@ -29,7 +29,7 @@
 						.well.text-info No Data Available for Coach
 
 				.col-md-6
-					%p.text-uppercase.text-center.red-title Players
+					%p.text-uppercase.text-center.red-title កីឡាករ
 					- if @current_team.players.present?
 						.list-group
 							.list-group-item 
@@ -43,13 +43,13 @@
 
 			.panel.panel-default
 				.panel-heading
-					%p.text-uppercase.text-center.red-title Match Results
+					%p.text-uppercase.text-center.red-title លទ្ឋផលប្រកួត
 				.panel-body
 					- @current_team.team_matches.each do |match|
 						= render "share/match", match:match
 					
 			.panel.panel-default
 				.panel-heading
-					%p.text-uppercase.text-center.red-title Team's Gallery Photos
+					%p.text-uppercase.text-center.red-title កម្រងរូបភាពរបស់ក្រុម
 				.panel-body
 					= render "share/gallery"

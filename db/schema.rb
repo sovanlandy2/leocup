@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305095122) do
+ActiveRecord::Schema.define(version: 20160305195529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,12 +117,25 @@ ActiveRecord::Schema.define(version: 20160305095122) do
   add_index "pools", ["name"], name: "index_pools_on_name", using: :btree
   add_index "pools", ["tournament_id"], name: "index_pools_on_tournament_id", using: :btree
 
+  create_table "post_photos", force: :cascade do |t|
+    t.integer  "post_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "post_photos", ["post_id"], name: "index_post_photos_on_post_id", using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.datetime "creation_date"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "source"
   end
 
   create_table "regions", force: :cascade do |t|

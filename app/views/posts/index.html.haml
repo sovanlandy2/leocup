@@ -1,8 +1,31 @@
-.container
+%br
+.container.posts
 	.row
 		.col-md-8
-			.panel.panel-default
-				%p WORK IN PROGRESS
-		.cod-md-3
-			.panel.panel-default
-				%p WORK IN PROGRESS
+			.panel.panel-primary
+				.panel-heading
+					%p.page-title.text-center ព័ត៌មាន
+				.panel-body
+					- Post.all.each do |post|
+						%div{id: "post_#{post.id}"}
+							%h2.post-title.text-danger= post.title
+							%p.post-date
+								%span.glyphicon.glyphicon-calendar
+								= post.post_date_format + " ប្រភព: " + post.source
+							%br
+							%p.post-content= post.content
+							- post.post_photos.each do |photo|
+								= image_tag photo.photo.url(:medium)
+							%hr.divider
+		.col-md-4
+			.panel.panel-primary
+				.panel-heading
+					%p.post-heading-title អត្ថបទ
+				.panel-body
+					- Post.all.each do |post|
+						%a{href: "#post_#{post.id}" }
+							%p.post-side-title.text-danger= post.title
+							%p.post-date
+								%span.glyphicon.glyphicon-calendar
+								= post.post_date_format
+							%hr.divider
