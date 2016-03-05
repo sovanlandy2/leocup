@@ -48,8 +48,8 @@
 					- @current_team.team_matches.each do |match|
 						= render "share/match", match:match
 					
-			/ .panel.panel-default
-			/ 	.panel-heading
-			/ 		%p.text-uppercase.text-center.red-title Photos
-			/ 	.panel-body
-			/ 		= render "share/gallery"
+			.panel.panel-default
+				.panel-heading
+					%p.text-uppercase.text-center.red-title Team's Gallery Photos
+				.panel-body
+					= render "share/gallery"

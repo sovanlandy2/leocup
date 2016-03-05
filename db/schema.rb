@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304085349) do
+ActiveRecord::Schema.define(version: 20160305072804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,17 @@ ActiveRecord::Schema.define(version: 20160304085349) do
 
   add_index "coaches", ["name"], name: "index_coaches_on_name", using: :btree
   add_index "coaches", ["team_id"], name: "index_coaches_on_team_id", using: :btree
+
+  create_table "gallery_photos", force: :cascade do |t|
+    t.integer  "team_left_id"
+    t.integer  "team_right_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
 
   create_table "matches", force: :cascade do |t|
     t.integer  "tournament_id"

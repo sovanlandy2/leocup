@@ -12,10 +12,10 @@
       #navbar.navbar-collapse.collapse{"aria-expanded" => "false", :style => "height: 1px;"}
         %ul.nav.navbar-nav
           - if !mobile_device?
-            %li= link_to "Home", "/", class: "text-uppercase"
+            %li= link_to "ទំព័រដើម", "/", class: "text-uppercase"
           %li
-            = link_to "Qualifiers", teams_path, class: "text-uppercase"
+            = link_to "ក្រុមប្រកួត", teams_path, class: "text-uppercase"
           %li
-            = link_to "Schedule & Result", matches_path, class: "text-uppercase"
+            = link_to "តារាងប្រកួត & លទ្ធផល", matches_path, class: "text-uppercase"
           %li
-            = link_to "News", "posts", class: "text-uppercase"
+            = link_to "ព័ត៌មាន", "posts", class: "text-uppercase"

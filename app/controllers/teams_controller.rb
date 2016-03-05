@@ -4,6 +4,7 @@ class TeamsController < ApplicationController
 		@current_team = @current_region.teams.first
 		@current_coach = @current_team.coach
 		@teams = @current_region.teams
+		@gallery_photos = @current_team.team_gallery_photos
 	end
 
 	def show
@@ -11,6 +12,7 @@ class TeamsController < ApplicationController
 		@current_region = @current_team.region
 		@teams = @current_region.teams
 		@current_coach = @current_team.coach
+		@gallery_photos = @current_team.team_gallery_photos
 		render :index
 	end
 
@@ -18,6 +20,7 @@ class TeamsController < ApplicationController
 		@current_region = Region.find_by(id: params[:region_id])
 		@teams = @current_region.teams
 		@current_team = @teams.first
+		@gallery_photos = @current_team.team_gallery_photos
 		respond_to do |format|
 		  format.html { redirect_to matches_url }
 		  format.js
@@ -29,6 +32,7 @@ class TeamsController < ApplicationController
 		@current_region = @current_team.region
 		@teams = @current_region.teams
 		@current_coach = @current_team.coach
+		@gallery_photos = @current_team.team_gallery_photos
 		respond_to do |format|
 		  format.html { redirect_to matches_url }
 		  format.js

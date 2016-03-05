@@ -24,42 +24,15 @@
 						Next
 						%i.glyphicon.glyphicon-chevron-right
 #links
-	.row
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
-	%br			
-	.row
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
-		.col-md-2
-			%a{"data-gallery" => "", :href => asset_path("carousel1.jpg"), :title => "Banana"}
-				%img{:alt => "Banana", :src => asset_path("carousel1_thumbnail.jpg"), class: "thumbnail"}
+	- size = @gallery_photos.size
+	- i = 0
+	- @gallery_photos.each do |g|
+		- if i % 6 == 0
+			.row
+				.col-md-2
+					%a{"data-gallery" => "", :href => g.photo.url}
+						%img{:alt => "Photo", :src => g.photo.url(:thumb), class: "thumbnail"}
+		- else
+			.col-md-2
+				%a{"data-gallery" => "", :href => g.photo.url}
+					%img{:alt => "Photo", :src => g.photo.url(:thumb), class: "thumbnail"}
