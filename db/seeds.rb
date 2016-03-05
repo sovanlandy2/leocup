@@ -12,7 +12,7 @@
 
 # Regions
 
-regions = ["មណ្ឌលភ្នំពេញ", "មណ្ឌលក្រុងព្រះស៊ីហនុ", "មណ្ឌលកំពង់ចាម", "មណ្ឌលបាត់ដំបង", "មណ្ឌលសៀមរាប"]
+regions = ["មណ្ឌលរាជធានីភ្នំពេញ", "មណ្ឌលក្រុងព្រះស៊ីហនុ", "មណ្ឌលកំពង់ចាម", "មណ្ឌលបាត់ដំបង", "មណ្ឌលសៀមរាប"]
 regions.each do |name|
 	region = Region.where(name: name).first_or_create!
 end
@@ -28,3 +28,9 @@ Tournament.where(name: 'Siem Reap Qualifiers').first_or_create(visible: true)
 Tournament.where(name: 'Battambong Qualifiers').first_or_create(visible: true)
 Tournament.where(name: 'Shihanouk Ville Qualifiers').first_or_create(visible: true)
 Tournament.where(name: 'Leo Cup National Volleyball Cup').first_or_create(visible: true)
+
+# team_pp_data = []
+# team_pp_region = Region.first
+# team_date.each do |name|
+# 	team = Team.where(name: name, region: team_pp_region).first_or_create
+# end

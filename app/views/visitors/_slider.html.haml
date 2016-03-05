@@ -1,55 +1,31 @@
-
-/ #myCarousel.container.carousel.slide{"data-ride" => "carousel"}
-/ 	/ Indicators
-/ 	%ol.carousel-indicators
-/ 		%li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
-/ 		%li{"data-slide-to" => "1", "data-target" => "#myCarousel", class: "myCarousel-target"}
-/ 		%li{"data-slide-to" => "2", "data-target" => "#myCarousel", class: "myCarousel-target"}
-/ 		%li{"data-slide-to" => "2", "data-target" => "#myCarousel", class: "myCarousel-target"}
-/ 	/ Wrapper for Slides
-/ 	.carousel-inner
-/ 		- SliderPhoto.all.each do |slide|
-/ 			.item.active
-/ 				.fill{:style => "background-image:url(#{slide.photo.url});"}
-/ 				/= image_tag slide.photo.url, style: "height: 100%;"
-/ 				.carousel-caption
-/ 					%h2= slide.caption
-/ 	/ Controls
-/ 	%a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"}
-/ 		%span.icon-prev
-/ 	%a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"}
-/ 		%span.icon-next
-/ %br
 - photos = SliderPhoto.all
 - size = photos.count
-.container
-  .row
-    .col-md-12
-      #myCarousel.carousel.slide{"data-ride" => "carousel"}
-        / Indicators
-        %ol.carousel-indicators
-          %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
-          - (1..size-1).each do |i|
-            %li{"data-slide-to" => "#{i}", "data-target" => "#myCarousel"}
-        .carousel-inner{:role => "listbox"}
-          - photos.each do |p|
-            - if(p == photos.first)
-              .item.active
-                %img.first-slide{:alt => "First slide", :src => p.photo}
-                /.fill{:style => "background-image:url(#{p.photo.url});"}
-                .container
-                  .carousel-caption= p.caption
-            - else
-              .item
-                %img.first-slide{:alt => "First slide", :src => p.photo.url}
-                  .container
-                    .carousel-caption= p.caption
-                      
-          
-        %a.left.carousel-control{"data-slide" => "prev", :href => "https://getbootstrap.com/examples/carousel/#myCarousel", :role => "button"}
-          %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
-          %span.sr-only Previous
-        %a.right.carousel-control{"data-slide" => "next", :href => "https://getbootstrap.com/examples/carousel/#myCarousel", :role => "button"}
-          %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
-          %span.sr-only Next
-      %br
+.container  
+  #myCarousel.carousel.slide{"data-ride" => "carousel"}
+    / Indicators
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+      - (1..size-1).each do |i|
+        %li{"data-slide-to" => "#{i}", "data-target" => "#myCarousel"}
+    .carousel-inner{:role => "listbox"}
+      - photos.each do |p|
+        - if(p == photos.first)
+          .item.active
+            %img.first-slide{:alt => "First slide", :src => p.photo}
+            /.fill{:style => "background-image:url(#{p.photo.url});"}
+            .container
+              .carousel-caption= p.caption
+        - else
+          .item
+            %img.first-slide{:alt => "First slide", :src => p.photo.url}
+              .container
+                .carousel-caption= p.caption
+                  
+      
+    %a.left.carousel-control{"data-slide" => "prev", :href => "https://getbootstrap.com/examples/carousel/#myCarousel", :role => "button"}
+      %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+      %span.sr-only Previous
+    %a.right.carousel-control{"data-slide" => "next", :href => "https://getbootstrap.com/examples/carousel/#myCarousel", :role => "button"}
+      %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+      %span.sr-only Next
+  %br
