@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305072804) do
+ActiveRecord::Schema.define(version: 20160305095122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,12 +159,13 @@ ActiveRecord::Schema.define(version: 20160305072804) do
     t.string   "name"
     t.integer  "region_id"
     t.text     "description"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean  "is_winner",           default: false
   end
 
   add_index "teams", ["name"], name: "index_teams_on_name", using: :btree

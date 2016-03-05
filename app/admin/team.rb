@@ -11,6 +11,7 @@ ActiveAdmin.register Team do
       f.input :region
       f.input :description
       f.input :avatar, :as => :file , :hint => f.image_tag(f.object.avatar.url(:thumb))
+      f.input :is_winner
     end
     
     f.inputs "Team's Coach" do
