@@ -29,8 +29,8 @@ Tournament.where(name: 'Battambong Qualifiers').first_or_create(visible: true)
 Tournament.where(name: 'Shihanouk Ville Qualifiers').first_or_create(visible: true)
 Tournament.where(name: 'Leo Cup National Volleyball Cup').first_or_create(visible: true)
 
-# team_pp_data = []
-# team_pp_region = Region.first
-# team_date.each do |name|
-# 	team = Team.where(name: name, region: team_pp_region).first_or_create
-# end
+Tournament.all.each do |tournament|
+	poolA = Pool.where(tournament: tournament, name: "ពូល A").first_or_create
+	poolB = Pool.where(tournament: tournament, name: "ពូល B").first_or_create
+end
+
