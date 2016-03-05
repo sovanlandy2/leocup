@@ -27,15 +27,15 @@
 	- gallery = @gallery_photos.to_a
 	- size = gallery.size
 	- i = 0
-	- round = (size/6) + 1
+	- round = (size/4) + 1
 	- round.times do
 		.row
-			- 6.times do
+			- 4.times do
 				- if (i == size)
 					- break
 				- g = gallery[i]
 				- i = i + 1
-				.col-md-2
+				.col-md-3
 					%a{"data-gallery" => "", :href => g.photo.url}
-						%img{:alt => "Photo", :src => g.photo.url(:thumb), class: "thumbnail"}
+						%img{:alt => "Photo", :src => g.photo.url(:thumb)}
 			
