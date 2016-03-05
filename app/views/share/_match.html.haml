@@ -16,7 +16,7 @@
 		.row.match-body
 			.col-md-4.text-left
 				.team-name
-					= link_to match.team_left.try(:name), team_path(match.team_left)
+					= link_to match.team_left.try(:name), team_path(match.team_left) rescue "N/A"
 			.col-md-4.text-center
 				%p.score= match.score.first
 				- scores = match.score[1..(match.score.size-1)]
@@ -27,6 +27,6 @@
 					= match.get_status
 			.col-md-4.text-right
 				.team-name
-					= link_to match.team_right.try(:name), team_path(match.team_right)
+					= link_to match.team_right.try(:name), team_path(match.team_right) rescue "N/A"
 
 	
