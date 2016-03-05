@@ -1,6 +1,6 @@
 .panel.panel-default
 	.panel-heading.text-center.panel-header-text 
-		%p.panel-header-text.text-danger លទ្ធផលចុងក្រោយ
+		%p.panel-header-text.text-danger.red-title លទ្ធផលចុងក្រោយ
 	.panel-body
 		- date = nil
 		- @matches.each do |match|
@@ -14,7 +14,7 @@
 							%p.group-date= match.match_date_format
 			= render "share/match", match: match
 		.row
-			.col-md-12.text-center
-				%button.btn.btn-success
-					= link_to "SEE ALL RESULT", matches_path, class: ""
-					%span.glyphicon.glyphicon-chevron-right
+			.col-md-12.text-center{style: "color: white;"}
+				%br
+				= link_to "មើលលទ្ធផលទាំងអស់", matches_path, class: "btn btn-success text-khmer"
+				%span.glyphicon.glyphicon-chevron-right
