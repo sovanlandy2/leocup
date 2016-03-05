@@ -7,9 +7,10 @@
 html,
 body {
     height: 100%;
-    background-image: image-url("<%= asset_path('bg_home_full.jpeg')%>");
+    background: url("<%= asset_path('logo_top.jpg')%>") top left no-repeat,
+                url("<%= asset_path('logo_bottom.jpg')%>") bottom left no-repeat;
     background-size: 100%;
-    /*background-position: left 50px;*/
+    background-color: #ed1c24;
     font-family: Oswald;
 
     .logo {
