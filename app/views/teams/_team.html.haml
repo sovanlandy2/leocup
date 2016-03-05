@@ -13,7 +13,7 @@
 			.row
 				.col-md-12
 					.panel
-						%p.text-center= @current_team.description
+						%p.text-center.team-description= @current_team.description
 			.row
 				.col-md-6
 					%p.text-uppercase.text-center.red-title Coach
@@ -22,9 +22,9 @@
 							.col-md-4
 								= image_tag @current_coach.avatar.url(:medium), class: "media-object thumbnail"
 							.col-md-8
-								%h4.media-heading= @current_coach.name
+								%h4.media-heading.coach-name= @current_coach.name
 									
-								%p=@current_coach.description || "No Description"
+								%p.team-description=@current_coach.description || "No Description"
 					- else
 						.well.text-info No Data Available for Coach
 
@@ -36,8 +36,8 @@
 								%table
 									- @current_team.players.each do |player|
 										%tr
-											%td{style: "width: 20%; padding-right: 10px;"}= player.number
-											%td= player.name
+											%td.team-description{style: "width: 20%; padding-right: 10px;"}= player.number
+											%td.team-description= player.name
 					- else 
 						.well.text-info No Data Available for Player
 
