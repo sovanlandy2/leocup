@@ -2,7 +2,7 @@
 .container.teams
 	.panel.panel-primary
 		.panel-heading
-			%p.page-title.text-center.text-danger.text-uppercase តារាងប្រកួត & លទ្ឋផល
+			%p.page-title.text-center.text-danger.text-uppercase តារាងប្រកួត & លទ្ធផល
 		.panel-body
 			.row
 				.col-md-4
@@ -26,13 +26,13 @@
 		
 			%br
 			.panel.panel-default	
-				%ul.nav.nav-pills.nav-justified
+				%ul.nav.nav-pills.nav-justified.text-khmer-bold
 					%li{:role => "presentation"}
-						= link_to "ALL MATCHES", select_matches_matches_path(id: @current_tournament.id), remote: true, method: :get
+						= link_to "ការប្រកួតទាំងអស់", select_matches_matches_path(id: @current_tournament.id), remote: true, method: :get
 					%li{:role => "paresentation"}
-						= link_to "COMPLETED MATCHES", select_matches_matches_path(id: @current_tournament.id, is_completed: true), remote: true, method: :get
+						= link_to "ការប្រកួតដែលបានបពា្ចប់", select_matches_matches_path(id: @current_tournament.id, is_completed: true), remote: true, method: :get
 					%li{:role => "presentation"}
-						= link_to "UPCOMING MATCHES", select_matches_matches_path(id: @current_tournament.id, is_completed: false), remote: true, method: :get
+						= link_to "ការប្រកួតដែលមិនទាន់ចាប់ផ្តើម", select_matches_matches_path(id: @current_tournament.id, is_completed: false), remote: true, method: :get
 			
 			#my_matches
 				= render "select_match"

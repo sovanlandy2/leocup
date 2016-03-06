@@ -30,6 +30,6 @@ class Match < ActiveRecord::Base
 	end
 
 	def get_status
-		self.is_completed?? "Match Completed" : "Upcoming Match"
+		self.is_completed?? "ការប្រកួតបានបពា្ចប់" : "ការប្រកួតមិនទាន់ចាប់ផ្តើម"
 	end
 end
