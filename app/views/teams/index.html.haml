@@ -12,7 +12,7 @@
 						- Region.all.each do |region|
 							= link_to region.name, select_region_teams_path(region_id: region.id), class: "list-group-item region-name", id: "myregion#{region.id}", remote: true, method: :get
 				.col-md-8
-					%p <span class="label label-success filter-title"> TEAMS </span>
+					%p <span class="label label-success filter-title"> QAULIFIED TEAMS </span>
 					#myteam
 						= render "teams"
 				

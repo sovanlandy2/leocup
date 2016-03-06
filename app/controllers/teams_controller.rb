@@ -17,9 +17,9 @@ class TeamsController < ApplicationController
 	end
 
 	def select_region
-		@current_region = Region.find_by(id: params[:region_id])
+		@current_region = Region.find_by(id: params[:region_id]) || Region.first
 		@teams = @current_region.teams.where(is_winner: true)
-		@current_team = @teams.first
+		@current_team = @teams.first || Team.where(is_winner: true).first
 		@gallery_photos = @current_team.team_gallery_photos
 		respond_to do |format|
 		  format.html { redirect_to matches_url }

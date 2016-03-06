@@ -1,26 +1,5 @@
 .panel.panel-default.voting
 	.panel-header
-		.voting-question.text-center
-			%h3.text-uppercase Which team will win LEO Beer National Volleyball Cup 2016?
-			%h4 Vote now and you could <strong>WIN Iphone 6s</strong>!
+		= image_tag "volleyball.png"
+			
 	.panel-body
-		.vote-score
-			.row
-				-@voted_teams.each do |team, i|
-					.col-md-3.btn.btn-primary.btn-vote
-						%h1 0%
-						%h4= team.name
-		.clearfix
-		%br
-		.pls-vote
-			.row 
-				.col-md-6
-					%h4.text-left Please login via your fb account to vote
-				.col-md-6
-					%h4.text-right Total Vote: <kbd>0	</kbd>
-		%br			
-		.fb-vote
-			.row
-				.col-md-12
-					=link_to image_tag 'btn_loginFB.png'
-
