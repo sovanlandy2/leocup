@@ -9,8 +9,9 @@
     = javascript_include_tag params[:controller] 
     = csrf_meta_tags
     %script{:src => "//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"}
-  %body  
-    = render 'layouts/logo'
+    = render 'layouts/google_analytic' 
+  %body
+    = render 'layouts/google_analytic_pageview'
     = render 'layouts/messages'
     = render 'layouts/navigation'
     /%main{:role => "main"}
