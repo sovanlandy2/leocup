@@ -14,9 +14,10 @@
     = render 'layouts/messages'
     = render 'layouts/navigation'
     /%main{:role => "main"}
-    = yield
-    = render 'layouts/footer'
-    - if mobile_device?
-      :javascript
-        $(".navbar").removeClass("navbar-static-top");
-        $(".navbar").addClass("navbar-fixed-top");
+    .main-div
+      = yield
+      = render 'layouts/footer'
+      - if mobile_device?
+        :javascript
+          $(".navbar").removeClass("navbar-static-top");
+          $(".navbar").addClass("navbar-fixed-top");

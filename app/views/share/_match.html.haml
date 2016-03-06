@@ -10,7 +10,7 @@
 				-if d.present?
 					%p.match-time= "#{d.day}/#{d.month}/#{d.year} #{d.hour}:00"
 			.col-md-4.text-center
-				%p.date-style= "#{match.stage} "
+				%p.text-khmer.date-style= "#{match.stage} "
 			.col-md-4.text-right
 				%p.region-name= match.team_right.region.name rescue "N/A"
 		.row.match-body

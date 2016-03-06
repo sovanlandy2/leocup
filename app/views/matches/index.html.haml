@@ -7,18 +7,18 @@
 			.row
 				.col-md-4
 					%p.text-uppercase <span class="label label-danger filter-title"> Tournament </span>
-					.dropdown{style: "font-family: 'Kantumruy-Bold';"}
+					.dropdown.result-table
 						%button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-							%span#dropdownMenu1span.qualifier
+							%span#dropdownMenu1span
 								- if @current_tournament.present?
-									= @current_tournament.name.upcase
+									%p.dropdown-name= @current_tournament.name
 								- else
 									%p.text-uppercase Select Tournament
 							%span.caret
 						%ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
 							- Tournament.all.each do |t|
 								%li
-									= link_to t.name.upcase, refresh_matches_path(id: t.id), remote: true, method: :get, data:{toggle: "dropdown"}, class: "qualifier"			
+									= link_to t.name, refresh_matches_path(id: t.id), remote: true, method: :get, data:{toggle: "dropdown"}, class: "dropdown-name"			
 						%br
 
 				#my_pool
