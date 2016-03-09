@@ -7,6 +7,9 @@ class Tournament < ActiveRecord::Base
 	accepts_nested_attributes_for :team_pools
 	accepts_nested_attributes_for :pools
 
+	scope :visible, -> {where(visible:true)}
+	scope :current_tournaments, -> {where(is_current_tournament:true)}
+
 	def generate_matches
 		if self.pools.count == 2
 			# first pool

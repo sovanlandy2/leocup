@@ -15,7 +15,8 @@ class Team < ActiveRecord::Base
 
 	def team_matches
 		Match.where("team_left_id = ? OR team_right_id = ?", self.id, self.id)
-		     .order("match_date desc")
+			 .includes([{team_left: :region}, {team_right: :region}])
+		     .date_desc
 	end
 
 	def team_gallery_photos
