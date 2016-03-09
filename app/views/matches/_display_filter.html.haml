@@ -1,0 +1,7 @@
+%ul.nav.nav-pills.nav-justified.text-khmer-bold
+	%li{:role => "presentation"}
+		= link_to "ការប្រកួតទាំងអស់", select_matches_matches_path(id: @current_tournament.id), remote: true, method: :get
+	%li{:role => "paresentation"}
+		= link_to "ការប្រកួតដែលបានបពា្ចប់", select_matches_matches_path(id: @current_tournament.id, is_completed: true), remote: true, method: :get
+	%li{:role => "presentation"}
+		= link_to "ការប្រកួតដែលមិនទាន់ចាប់ផ្តើម", select_matches_matches_path(id: @current_tournament.id, is_completed: false), remote: true, method: :get
