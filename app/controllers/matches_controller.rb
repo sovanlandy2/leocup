@@ -1,12 +1,12 @@
 class MatchesController < ApplicationController
 	def index
-		@current_tournament = Tournament.find_by(id: params[:id]) || Tournament.first
+		@current_tournament = Tournament.where(is_current_tournament: true).first || Tournament.first
 		@matches = @current_tournament.matches.order("match_date desc nulls last")
 	end
 
 	def refresh
 		@current_tournament = Tournament.find_by(id: params[:id]) || Tournament.first
-		@matches = @current_tournament.matches
+		@matches = @current_tournament.matches.order("match_date desc nulls last")	
 		respond_to do |format|
 		  format.html { redirect_to matches_url }
 		  format.js
