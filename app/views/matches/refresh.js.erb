@@ -1,3 +1,5 @@
 $("#dropdownMenu1span").text('<%= @current_tournament.name%>');
 var html_string = "<%= escape_javascript render 'pool' %>";
 $("#my_pool").html(html_string);
+var html_string2 = "<%= escape_javascript render 'select_match' %>";
+$("#my_matches").html(html_string2);

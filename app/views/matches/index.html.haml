@@ -16,7 +16,7 @@
 									%p.text-uppercase Select Tournament
 							%span.caret
 						%ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
-							- Tournament.all.each do |t|
+							- Tournament.where(visible: true).each do |t|
 								%li
 									= link_to t.name, refresh_matches_path(id: t.id), remote: true, method: :get, data:{toggle: "dropdown"}, class: "dropdown-name"			
 						%br
