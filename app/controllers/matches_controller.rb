@@ -6,6 +6,7 @@ class MatchesController < ApplicationController
 		                                .first
 		@matches =   @current_tournament.matches
 		                                .includes([{team_left: :region}, {team_right: :region}])
+		                                .completed
 									    .date_desc
 	end
 
