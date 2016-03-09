@@ -13,6 +13,7 @@ ActiveAdmin.register Tournament do
       f.input :end_date, as: :date_picker
       f.input :location
       f.input :visible
+      f.input :is_current_tournament
 
     end
 
