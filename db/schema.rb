@@ -89,6 +89,9 @@ ActiveRecord::Schema.define(version: 20160309055250) do
     t.datetime "photo_updated_at"
   end
 
+  add_index "gallery_photos", ["team_left_id"], name: "index_gallery_photos_on_team_left_id", using: :btree
+  add_index "gallery_photos", ["team_right_id"], name: "index_gallery_photos_on_team_right_id", using: :btree
+
   create_table "matches", force: :cascade do |t|
     t.integer  "tournament_id"
     t.integer  "team_left_id"
@@ -203,9 +206,9 @@ ActiveRecord::Schema.define(version: 20160309055250) do
     t.date     "start_date"
     t.date     "end_date"
     t.string   "location"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.boolean  "is_current_tournament"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.boolean  "is_current_tournament", default: false
   end
 
   add_index "tournaments", ["name"], name: "index_tournaments_on_name", using: :btree
