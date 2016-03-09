@@ -12,10 +12,11 @@
       #navbar.navbar-collapse.collapse{"aria-expanded" => "false", :style => "height: 1px;"}
         %ul.nav.navbar-nav
           - if !mobile_device?
-            %li= link_to "ទំព័រដើម", "/", class: "text-uppercase"
-          %li
+            %li#nav-home
+              = link_to "ទំព័រដើម", "/", class: "text-uppercase"
+          %li#nav-team
             = link_to "ក្រុមប្រកួត", teams_path, class: "text-uppercase"
-          %li
+          %li#nav-result
             = link_to "តារាងប្រកួត & លទ្ធផល", matches_path, class: "text-uppercase"
-          %li
+          %li#nav-news
             = link_to "ព័ត៌មាន", posts_path, class: "text-uppercase"

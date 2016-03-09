@@ -6,7 +6,7 @@
 				.panel-heading
 					%p.page-title.text-center ព័ត៌មាន
 				.panel-body
-					- Post.all.each do |post|
+					- @posts.each do |post|
 						%div{id: "post_#{post.id}"}
 							%h2.post-title.text-danger= post.title
 							%p.post-date
@@ -22,7 +22,7 @@
 				.panel-heading
 					%p.post-heading-title អត្ថបទ
 				.panel-body
-					- Post.all.each do |post|
+					- @posts.each do |post|
 						%a{href: "#post_#{post.id}" }
 							%p.post-side-title.text-danger= post.title
 							%p.post-date
