@@ -20,14 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   menu:
     home: "Home"
     teams: "Teams"
     result: "Matches & Result"
     news: "News"
   home:
-    gallery: "Gallery Photo from Tournament"
+    gallery: "Gallery Photos from Tournament"
     latest_result: "Latest Results"
     see_all_result: "See All Results"
 
