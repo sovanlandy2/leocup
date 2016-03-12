@@ -4,7 +4,7 @@
 		.col-md-8
 			.panel.panel-primary
 				.panel-heading
-					%p.page-title.text-center ព័ត៌មាន
+					%p.page-title.text-center= t("news.title")
 				.panel-body
 					- @posts.each do |post|
 						%div{id: "post_#{post.id}"}
@@ -20,7 +20,7 @@
 		.col-md-4
 			.panel.panel-primary
 				.panel-heading
-					%p.post-heading-title អត្ថបទ
+					%p.post-heading-title= t("news.articles")
 				.panel-body
 					- @posts.each do |post|
 						%a{href: "#post_#{post.id}" }

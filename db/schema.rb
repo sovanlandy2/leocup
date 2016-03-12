@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309055250) do
+ActiveRecord::Schema.define(version: 20160311235251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,18 @@ ActiveRecord::Schema.define(version: 20160309055250) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "coach_translations", force: :cascade do |t|
+    t.integer  "coach_id",    null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.text     "description"
+  end
+
+  add_index "coach_translations", ["coach_id"], name: "index_coach_translations_on_coach_id", using: :btree
+  add_index "coach_translations", ["locale"], name: "index_coach_translations_on_locale", using: :btree
 
   create_table "coaches", force: :cascade do |t|
     t.string   "name"
@@ -109,6 +121,17 @@ ActiveRecord::Schema.define(version: 20160309055250) do
   add_index "matches", ["team_left_id"], name: "index_matches_on_team_left_id", using: :btree
   add_index "matches", ["team_right_id"], name: "index_matches_on_team_right_id", using: :btree
   add_index "matches", ["tournament_id"], name: "index_matches_on_tournament_id", using: :btree
+
+  create_table "player_translations", force: :cascade do |t|
+    t.integer  "player_id",  null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
+  add_index "player_translations", ["locale"], name: "index_player_translations_on_locale", using: :btree
+  add_index "player_translations", ["player_id"], name: "index_player_translations_on_player_id", using: :btree
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
@@ -184,6 +207,18 @@ ActiveRecord::Schema.define(version: 20160309055250) do
   add_index "team_pools", ["pool_id"], name: "index_team_pools_on_pool_id", using: :btree
   add_index "team_pools", ["team_id"], name: "index_team_pools_on_team_id", using: :btree
 
+  create_table "team_translations", force: :cascade do |t|
+    t.integer  "team_id",     null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.text     "description"
+  end
+
+  add_index "team_translations", ["locale"], name: "index_team_translations_on_locale", using: :btree
+  add_index "team_translations", ["team_id"], name: "index_team_translations_on_team_id", using: :btree
+
   create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.integer  "region_id"
@@ -199,6 +234,18 @@ ActiveRecord::Schema.define(version: 20160309055250) do
 
   add_index "teams", ["name"], name: "index_teams_on_name", using: :btree
   add_index "teams", ["region_id"], name: "index_teams_on_region_id", using: :btree
+
+  create_table "tournament_translations", force: :cascade do |t|
+    t.integer  "tournament_id", null: false
+    t.string   "locale",        null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "name"
+    t.string   "location"
+  end
+
+  add_index "tournament_translations", ["locale"], name: "index_tournament_translations_on_locale", using: :btree
+  add_index "tournament_translations", ["tournament_id"], name: "index_tournament_translations_on_tournament_id", using: :btree
 
   create_table "tournaments", force: :cascade do |t|
     t.string   "name"

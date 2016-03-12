@@ -1,0 +1,10 @@
+km:
+  active_admin:
+    dashboard: Dashboard
+    logout: logout
+    edit_model: edit information
+    view: view
+    edit: edit
+    delete: delete 
+    show: show
+    cancel: Cancel

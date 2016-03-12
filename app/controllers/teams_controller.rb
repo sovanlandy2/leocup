@@ -9,6 +9,7 @@ class TeamsController < ApplicationController
 	end
 
 	def show
+		binding.pry
 		@current_team = Team.includes([:region]).find_by(id: params[:id])
 		@current_region = @current_team.region
 		@teams = @current_region.teams.includes(:coach, :players, [:region])

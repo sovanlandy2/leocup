@@ -24,5 +24,8 @@ module Leocup
     config.active_record.raise_in_transactional_callbacks = true
     config.time_zone = 'Asia/Bangkok'
     config.active_record.default_timezone = :local
+    config.i18n.fallbacks = true
+    config.i18n.available_locales = [:km, :en]
+    config.i18n.default_locale = :km
   end
 end

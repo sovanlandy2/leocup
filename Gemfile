@@ -26,12 +26,17 @@ gem 'bootstrap-sass'
 
 gem 'devise'
 gem 'figaro'
+
+gem 'globalize', '~> 5.0.0'
+
+
 gem 'haml-rails'
 
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '< 2.0'
 
 gem 'pg'
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x'
 gem 'simple_form'
 
 

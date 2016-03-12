@@ -1,6 +1,6 @@
 .panel.panel-default
 	.panel-heading.text-center.panel-header-text 
-		%p.panel-header-text.text-danger.red-title លទ្ធផលចុងក្រោយ
+		%p.panel-header-text.text-danger.red-title= t("home.latest_result")
 	.panel-body
 		- date = nil
 		- @matches.each do |match|
@@ -11,10 +11,10 @@
 					%br
 					.row.group-date
 						.col-md-12.text-center
-							%p.group-date= match.match_date_format
+							%p.group-date= match_date_format(date)
 			= render "share/match", match: match
 		.row
 			.col-md-12.text-center{style: "color: white;"}
 				%br
-				= link_to "មើលលទ្ធផលទាំងអស់", matches_path, class: "btn btn-success text-khmer"
+				= link_to t("home.see_all_result"), matches_path, class: "btn btn-success text-khmer"
 				%span.glyphicon.glyphicon-chevron-right

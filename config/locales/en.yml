@@ -21,3 +21,32 @@
 
 en:
   hello: "Hello world"
+  menu:
+    home: "Home"
+    teams: "Teams"
+    result: "Matches & Result"
+    news: "News"
+  home:
+    gallery: "Gallery Photo from Tournament"
+    latest_result: "Latest Result"
+    see_all_result: "See All Result"
+
+  team:
+    title: "Teams"
+    matches: "Matches"
+    coach: "Coach"
+    players: "Players"
+    region: "Regions"
+    winner: "Winnter Teams"
+    team_gallery: "Team's Gallery Photo"
+  match:
+    title: "Matches & Result"
+    matches: "Matches"
+    complete_matches: "Completed Matches"
+    incomplete_matches: "Not Started Matches"
+    all_matches: "All Matches"
+    complete_status: "Match Completed"
+    incomplete_status: "Match Not Started"
+  news:
+    title: "News"
+    articles: "Articles"

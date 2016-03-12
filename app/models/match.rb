@@ -20,22 +20,4 @@ class Match < ActiveRecord::Base
 		self.score = []
 		self.score=values.split("\n")
 	end
-
-	def match_date_format
-		date = self.match_date
-		return nil if date.blank?
-		day = khmer_day date.wday
-		date_string = date.strftime("%d-%m-%Y")
-		time = "#{date.hour}:00"
-		return "#{day} #{date_string}"
-	end
-
-	def khmer_day i
-		data = ['ថ្ងៃអាទិត្យ','ថ្ងៃចន្ទ', 'ថ្ងៃអង្គារ', 'ថ្ងៃពុធ', 'ថ្ងៃព្រហស្បតិ៍', 'ថ្ងៃសុក្រ', 'ថ្ងៃសៅរ៍']
-		data[i]		
-	end
-
-	def get_status
-		self.is_completed?? "ការប្រកួតបានបពា្ចប់" : "ការប្រកួតមិនទាន់ចាប់ផ្តើម"
-	end
 end

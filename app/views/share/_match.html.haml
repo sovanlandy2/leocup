@@ -8,7 +8,7 @@
 			.col-md-2.text-left	
 				- d = match.match_date
 				-if d.present?
-					%p.match-time= "#{d.day}/#{d.month}/#{d.year} #{d.hour}:00"
+					%p.match-time= match_date_format(d)
 			.col-md-4.text-center
 				%p.text-khmer.date-style= "#{match.stage} "
 			.col-md-4.text-right
@@ -24,7 +24,10 @@
 				- scores.each do |s|
 					%kbd{style: "margin-right: 3px"}= s
 				%p.match-status.text-khmer
-					= match.get_status
+					- if match.is_completed?
+						= t "match.complete_status" 
+					- else
+						= t "match.incomplete_status"
 			.col-md-4.text-right
 				.team-name
 					= link_to match.team_right.try(:name), team_path(match.team_right) rescue "N/A"

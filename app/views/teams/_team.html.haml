@@ -16,7 +16,7 @@
 						%p.text-center.team-description= @current_team.description
 			.row
 				.col-md-6
-					%p.text-uppercase.text-center.red-title គ្រូបង្វឹក
+					%p.text-uppercase.text-center.red-title= t("team.coach")
 					- if @current_coach.present?
 						.row
 							.col-md-4
@@ -29,7 +29,8 @@
 						.well.text-info No Data Available for Coach
 
 				.col-md-6
-					%p.text-uppercase.text-center.red-title កីឡាករ
+					%p.text-uppercase.text-center.red-title
+						= t("team.players")
 					- if @current_team.players.present?
 						.list-group
 							.list-group-item 
@@ -43,13 +44,13 @@
 
 			.panel.panel-default
 				.panel-heading
-					%p.text-uppercase.text-center.red-title លទ្ឋផលប្រកួត
+					%p.text-uppercase.text-center.red-title= t("team.matches")
 				.panel-body
 					- @current_team.team_matches.each do |match|
 						= render "share/match", match:match
 					
 			.panel.panel-default
 				.panel-heading
-					%p.text-uppercase.text-center.red-title កម្រងរូបភាពរបស់ក្រុម
+					%p.text-uppercase.text-center.red-title= t("team.team_gallery")
 				.panel-body
 					= render "share/gallery"

@@ -1,0 +1,29 @@
+km:
+  menu:
+    home: "ទំព័រដើម"
+    teams: "ក្រុមប្រកួត"
+    result: "តារាងប្រកួត & លទ្ធផល"
+    news: "ព័ត៌មាន"
+  home:
+    gallery: "កម្រងរូបថតពីការប្រកួត"
+    latest_result: "លទ្ធផលចុងក្រោយ"
+    see_all_result: "មើលលទ្ធផលទាំងអស់"
+  team:
+    title: "ក្រុមប្រកួត"
+    matches: "លទ្ឋផលប្រកួត"
+    coach: "គ្រូបង្វឹក"
+    players: "កីឡាករ"
+    region: "មណ្ឌល"
+    winner: "ក្រុមឈ្នះ"
+    team_gallery: "កម្រងរូបភាពរបស់ក្រុម"
+  match:
+    title: "តារាងប្រកួត & លទ្ធផល"
+    matches: "ការប្រកួត"
+    complete_matches: "ការប្រកួតដែលបានបពា្ចប់"
+    incomplete_matches: "ការប្រកួតដែលមិនទាន់ចាប់ផ្តើម"
+    all_matches: "ការប្រកួតទាំងអស់"
+    complete_status: "ការប្រកួតបានបពា្ចប់"
+    incomplete_status: "ការប្រកួតមិនទាន់ចាប់ផ្តើម"
+  news:
+    title: "ព័ត៌មាន"
+    articles: "អត្ថបទ"

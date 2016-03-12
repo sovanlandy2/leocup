@@ -10,6 +10,8 @@ class Tournament < ActiveRecord::Base
 	scope :visible, -> {where(visible:true)}
 	scope :current_tournaments, -> {where(is_current_tournament:true)}
 
+	translates :name, :location
+
 	def generate_matches
 		if self.pools.count == 2
 			# first pool

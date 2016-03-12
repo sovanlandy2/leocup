@@ -13,6 +13,8 @@ class Team < ActiveRecord::Base
 	accepts_nested_attributes_for :coach
 	accepts_nested_attributes_for :players
 
+	translates :name, :description
+
 	def team_matches
 		Match.where("team_left_id = ? OR team_right_id = ?", self.id, self.id)
 			 .includes([{team_left: :region}, {team_right: :region}])
@@ -23,4 +25,5 @@ class Team < ActiveRecord::Base
 		GalleryPhoto.where("team_left_id = ? OR team_right_id = ?", self.id, self.id)
 					 .order("created_at desc")
 	end
+	
 end

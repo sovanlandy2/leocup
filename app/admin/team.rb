@@ -7,7 +7,10 @@ ActiveAdmin.register Team do
 
   form do |f|
     f.inputs 'Team Profile' do
-      f.input :name
+      # f.translated_inputs "Translated fields", switch_locale: false do |t|
+      #   t.input :name
+      # end
+      f.input :name, label: "Name in locale: #{I18n.locale}"
       f.input :region
       f.input :description
       f.input :avatar, :as => :file , :hint => f.image_tag(f.object.avatar.url(:thumb))
@@ -31,7 +34,7 @@ ActiveAdmin.register Team do
         p.input :role
       end
     end
-    
+
     f.actions
   end
 

@@ -1,6 +1,6 @@
 .panel.panel-default
 	.panel-heading
-		%p.text-uppercase.text-center.red-title ការប្រកួត
+		%p.text-uppercase.text-center.red-title= t("match.matches")
 	.panel-body
 
 		- date = nil
@@ -12,6 +12,6 @@
 					%br
 					.row.group-date
 						.col-md-12.text-center
-							%p.group-date= match.match_date_format
+							%p.group-date= match_date_format(date)
 
 			= render "share/match", match: match
