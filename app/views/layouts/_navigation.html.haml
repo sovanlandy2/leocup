@@ -12,9 +12,10 @@
           .navbar-brand
             = link_to image_tag("logo_top.png", size: "50x60"), "/"
           .navbar-brand
-            = link_to "ខ្មែរ", locale: "km", class: "btn navbar-brand"
-          .navbar-brand
-            = link_to "English", locale: "en", class: "btn navbar-brand"
+            - if I18n.locale == :km
+              = link_to image_tag("en_flag.png", size: "25x30"), locale: "en"
+            - else
+              = link_to image_tag("km_flag.png", size: "25x30"), locale: "km"
         
       #navbar.navbar-collapse.collapse{"aria-expanded" => "false", :style => "height: 1px;"}
         %ul.nav.navbar-nav
@@ -29,13 +30,8 @@
             = link_to t("menu.news"), posts_path, class: "text-uppercase"
         - if !mobile_device?  
           %ul.nav.navbar-right
-            %li.dropdown
-              %a.language-dropdown.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                Language
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  = link_to "ខ្មែរ", locale: "km"
-                %li.language-dropdown-item
-                  = link_to "English", locale: "en"
-                
+            %li
+              - if I18n.locale == :km
+                = link_to image_tag("en_flag.png", size: "25x30"), locale: "en"
+              - else
+                = link_to image_tag("km_flag.png", size: "25x30"), locale: "km"
