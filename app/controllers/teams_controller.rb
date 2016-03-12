@@ -24,7 +24,7 @@ class TeamsController < ApplicationController
 		@teams = @current_region.teams.includes(:coach, :players, [:region])
 		                              .where(is_winner: true)
 		@current_team = @teams.first
-		@gallery_photos = @current_team.team_gallery_photos
+		@gallery_photos = @current_team.team_gallery_photos || []
 		respond_to do |format|
 		  format.html { redirect_to matches_url }
 		  format.js
