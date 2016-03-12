@@ -38,6 +38,7 @@ en:
     region: "Regions"
     winner: "Winner Teams"
     team_gallery: "Team's Gallery Photo"
+    no_result: "Tournament has not yet completed"
   match:
     title: "Matches & Result"
     matches: "Matches"
