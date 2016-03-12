@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312023821) do
+ActiveRecord::Schema.define(version: 20160312092804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -156,6 +156,17 @@ ActiveRecord::Schema.define(version: 20160312023821) do
 
   add_index "players", ["name"], name: "index_players_on_name", using: :btree
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
+
+  create_table "pool_translations", force: :cascade do |t|
+    t.integer  "pool_id",    null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
+  add_index "pool_translations", ["locale"], name: "index_pool_translations_on_locale", using: :btree
+  add_index "pool_translations", ["pool_id"], name: "index_pool_translations_on_pool_id", using: :btree
 
   create_table "pools", force: :cascade do |t|
     t.string   "name"

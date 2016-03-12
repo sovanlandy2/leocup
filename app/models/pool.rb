@@ -7,4 +7,5 @@ class Pool < ActiveRecord::Base
            :reject_if => :all_blank,
            :allow_destroy => true
 
+    translates :name
 end

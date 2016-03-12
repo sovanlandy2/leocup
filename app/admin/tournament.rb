@@ -19,7 +19,7 @@ ActiveAdmin.register Tournament do
 
     f.inputs "Team Pool" do 
       f.has_many :pools do |pool|
-        pool.input :name, label: "PoolName"
+        pool.input :name, label: "PoolName (translated: #{I18n.locale} )"
         pool.has_many :team_pools do |t|
           t.input :team
         end
