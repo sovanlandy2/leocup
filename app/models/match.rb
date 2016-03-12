@@ -12,6 +12,8 @@ class Match < ActiveRecord::Base
 
   	attr_accessor   :score_raw
 
+  	translates :stage
+
 	def score_raw
 		self.score.join("\n") unless self.score.nil?
 	end

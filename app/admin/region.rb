@@ -7,7 +7,7 @@ ActiveAdmin.register Region do
 
   form do |f|
     f.inputs "Region" do 
-      f.input :name
+      f.input :name, label: "Name (translated: #{I18n.locale} )"
     end
 
     f.inputs "Team in Region" do 

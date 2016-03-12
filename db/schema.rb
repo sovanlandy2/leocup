@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312003927) do
+ActiveRecord::Schema.define(version: 20160312023821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,17 @@ ActiveRecord::Schema.define(version: 20160312003927) do
   add_index "gallery_photos", ["team_left_id"], name: "index_gallery_photos_on_team_left_id", using: :btree
   add_index "gallery_photos", ["team_right_id"], name: "index_gallery_photos_on_team_right_id", using: :btree
 
+  create_table "match_translations", force: :cascade do |t|
+    t.integer  "match_id",   null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "stage"
+  end
+
+  add_index "match_translations", ["locale"], name: "index_match_translations_on_locale", using: :btree
+  add_index "match_translations", ["match_id"], name: "index_match_translations_on_match_id", using: :btree
+
   create_table "matches", force: :cascade do |t|
     t.integer  "tournament_id"
     t.integer  "team_left_id"
@@ -189,6 +200,17 @@ ActiveRecord::Schema.define(version: 20160312003927) do
     t.datetime "updated_at",    null: false
     t.string   "source"
   end
+
+  create_table "region_translations", force: :cascade do |t|
+    t.integer  "region_id",  null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
+  add_index "region_translations", ["locale"], name: "index_region_translations_on_locale", using: :btree
+  add_index "region_translations", ["region_id"], name: "index_region_translations_on_region_id", using: :btree
 
   create_table "regions", force: :cascade do |t|
     t.string   "name"

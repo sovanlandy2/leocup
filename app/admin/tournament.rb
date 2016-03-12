@@ -8,10 +8,10 @@ ActiveAdmin.register Tournament do
 
   form do |f|
     f.inputs "Tournament Detail" do 
-      f.input :name
+      f.input :name, label: "Name (translated: #{I18n.locale} )"
       f.input :start_date, as: :date_picker
       f.input :end_date, as: :date_picker
-      f.input :location
+      f.input :location, label: "Location (translated: #{I18n.locale} )"
       f.input :visible
       f.input :is_current_tournament
 

@@ -7,9 +7,9 @@ ActiveAdmin.register Post do
 
   form do |f|
     f.inputs 'News Content' do
-      f.input :title
-      f.input :source
-      f.input :content
+      f.input :title, label: "Title (translated: #{I18n.locale} )"
+      f.input :source, label: "Source (translated: #{I18n.locale} )"
+      f.input :content, label: "Content (translated: #{I18n.locale} )"
     end
     
     f.inputs "Photos" do

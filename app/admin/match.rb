@@ -14,6 +14,7 @@ ActiveAdmin.register Match do
       f.input :match_date, as: :datetime_picker
       f.input :score_raw, label: "Match Score (New Line for each score)", as: :text
       f.input :visible
+      f.input :stage, label: "Stage (translated: #{I18n.locale} )"
       f.input :is_completed
     end
     f.actions
