@@ -28,8 +28,8 @@ en:
     news: "News"
   home:
     gallery: "Gallery Photo from Tournament"
-    latest_result: "Latest Result"
-    see_all_result: "See All Result"
+    latest_result: "Latest Results"
+    see_all_result: "See All Results"
 
   team:
     title: "Teams"
@@ -37,7 +37,7 @@ en:
     coach: "Coach"
     players: "Players"
     region: "Regions"
-    winner: "Winnter Teams"
+    winner: "Winner Teams"
     team_gallery: "Team's Gallery Photo"
   match:
     title: "Matches & Result"
