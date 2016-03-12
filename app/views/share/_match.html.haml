@@ -20,9 +20,9 @@
 			.col-md-4.text-center
 				%p.score= match.score.first
 				- scores = match.score[1..(match.score.size-1)]
-				
-				- scores.each do |s|
-					%kbd{style: "margin-right: 3px"}= s
+				- if scores.present?
+					- scores.each do |s|
+						%kbd{style: "margin-right: 3px"}= s
 				%p.match-status.text-khmer
 					- if match.is_completed?
 						= t "match.complete_status" 
