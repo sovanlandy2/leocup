@@ -23,9 +23,10 @@
 
 				#my_pool
 					= render "pool"
-		
+			.text-center
+				= render "share/fb_share", locals: {url: matches_path}	
 			%br
-			.panel.panel-default	
+			.panel.panel-default
 				#my_filter
 					= render "display_filter"
 			

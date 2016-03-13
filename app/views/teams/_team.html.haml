@@ -14,6 +14,10 @@
 			.row
 				.col-md-12
 					.panel
+						.text-center
+							= render "share/fb_share", locals: {url: team_path(@current_team.id)}
+						%br
+						
 						%p.text-center.team-description= @current_team.description
 			.row
 				.col-md-6

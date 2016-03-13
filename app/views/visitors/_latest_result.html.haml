@@ -2,6 +2,8 @@
 	.panel-heading.text-center.panel-header-text 
 		%p.panel-header-text.text-danger.red-title= t("home.latest_result")
 	.panel-body
+		.text-center
+			= render "share/fb_share", locals: {url: root_path}
 		- date = nil
 		- @matches.each do |match|
 			- if (match.match_date.present?)
