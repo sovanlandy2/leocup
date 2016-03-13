@@ -13,7 +13,7 @@
 								.col-md-10
 									%p.post-date
 										%span.glyphicon.glyphicon-calendar
-											= match_date_format(post.created_at) + " " + t("news.source") + ": " + post.source
+										= match_date_format(post.created_at) + " " + t("news.source") + ": " + post.source
 									= render "share/fb_share", locals: {url: posts_path + "#post_#{post.id}"}
 								.col-md-3
 									
