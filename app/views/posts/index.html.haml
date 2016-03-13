@@ -14,8 +14,9 @@
 									%p.post-date
 										%span.glyphicon.glyphicon-calendar
 											= match_date_format(post.created_at) + " " + t("news.source") + ": " + post.source
+									= render "share/fb_share", locals: {url: posts_path}
 								.col-md-3
-									= render_shareable :buttons=> ['facebook']
+									
 							%br
 							%p.post-content
 								= post.content.gsub("\r\n","<br/>").html_safe

@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-image-gallery.min
+//= require social-share-button
 //= require cocoon

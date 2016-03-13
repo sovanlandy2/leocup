@@ -38,7 +38,6 @@ gem 'aws-sdk', '< 2.0'
 gem 'pg'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x'
 gem 'simple_form'
-gem 'shareable'
 
 
 
