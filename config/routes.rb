@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   	get :refresh, on: :collection
   	get :select_matches, on: :collection
   end
-  resources :posts, only: [:index]
+  resources :posts, only: [:index, :show]
   
   resources :teams, only: [:index, :show] do 
     get :select_region, on: :collection

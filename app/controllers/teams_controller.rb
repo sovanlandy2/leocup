@@ -18,6 +18,9 @@ class TeamsController < ApplicationController
 		                              .where(is_winner: true)
 		@current_coach = @current_team.coach
 		@gallery_photos = @current_team.team_gallery_photos
+
+		image_url = @gallery_photos.first.photo.url rescue nil
+		set_meta_tags og: { image: image_url, title: @current_team.name}
 		render :index
 	end
 
