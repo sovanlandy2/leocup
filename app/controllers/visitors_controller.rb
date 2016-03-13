@@ -11,6 +11,6 @@ class VisitorsController < ApplicationController
 		@gallery_photos = GalleryPhoto.order("created_at desc").limit(30)
 
 		image_url = @gallery_photos.first.photo.url rescue nil
-		set_meta_tags og: { image: image_url}
+		set_meta_tags og: { image: image_url, description: "See teams, matches result and schedule and gallery photos from the Leobeer Cup National Volleybal 2016"}
 	end
 end

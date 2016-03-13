@@ -2,12 +2,12 @@ class PostsController < ApplicationController
 	def index
 		@posts = Post.includes(:post_photos).order("created_at desc")
 		image_url = @posts.last.post_photos.first.photo.url rescue nil
-		set_meta_tags og: { image: image_url, title: "News from Leocup Volleybal 2016"}
+		set_meta_tags og: { image: image_url, title: "News from Leocup Volleybal 2016", description: Post.last.title}
 	end
 
 	def show
 		@post = Post.find(params[:id])
 		image_url = @post.post_photos.first.photo.url rescue nil
-		set_meta_tags og: { image: image_url, title: @post.title}
+		set_meta_tags og: { image: image_url, title: @post.title, description: @post.content }
 	end
 end

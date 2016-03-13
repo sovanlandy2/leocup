@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
 		@gallery_photos = @current_team.team_gallery_photos
 
 		image_url = @gallery_photos.first.photo.url rescue nil
-		set_meta_tags og: { image: image_url, title: @current_team.name}
+		set_meta_tags og: { image: image_url, title: @current_team.name, description: @current_team.description}
 	end
 
 	def show
@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
 		@gallery_photos = @current_team.team_gallery_photos
 
 		image_url = @gallery_photos.first.photo.url rescue nil
-		set_meta_tags og: { image: image_url, title: @current_team.name}
+		set_meta_tags og: { image: image_url, title: @current_team.name, description: @current_team.description}
 		render :index
 	end
 
