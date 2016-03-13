@@ -31,7 +31,7 @@ gem 'globalize', '~> 5.0.0'
 
 
 gem 'haml-rails'
-
+gem 'meta-tags'
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '< 2.0'
 

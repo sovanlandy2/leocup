@@ -7,9 +7,10 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
     = javascript_include_tag params[:controller] 
+    = display_meta_tags site: 'Leocup'
     = csrf_meta_tags
     %script{:src => "//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"}
-    = render 'layouts/google_analytic' 
+    = render 'layouts/google_analytic'
     = favicon_link_tag
   %body
     = render 'layouts/fb_share'

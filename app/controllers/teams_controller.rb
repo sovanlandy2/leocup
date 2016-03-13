@@ -6,10 +6,12 @@ class TeamsController < ApplicationController
 		@current_team = @teams.first
 		@current_coach = @current_team.coach
 		@gallery_photos = @current_team.team_gallery_photos
+
+		image_url = @gallery_photos.first.url rescue nil
+		set_meta_tags og: { image: [image_url], title: @current_team.name}
 	end
 
 	def show
-		binding.pry
 		@current_team = Team.includes([:region]).find_by(id: params[:id])
 		@current_region = @current_team.region
 		@teams = @current_region.teams.includes(:coach, :players, [:region])
