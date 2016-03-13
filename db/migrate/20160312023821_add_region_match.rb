@@ -5,9 +5,9 @@ class AddRegionMatch < ActiveRecord::Migration
 	    }, {
 	      :migrate_data => true
 	    })
-	  end
+  	end
 
-	  def self.down
-	    Match.drop_translation_table! :migrate_data => true
-	  end
+	def self.down
+		Match.drop_translation_table! :migrate_data => true
+	end
 end

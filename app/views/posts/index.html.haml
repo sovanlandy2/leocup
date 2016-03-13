@@ -9,9 +9,13 @@
 					- @posts.each do |post|
 						%div{id: "post_#{post.id}"}
 							%h2.post-title.text-danger= post.title
-							%p.post-date
-								%span.glyphicon.glyphicon-calendar
-								= match_date_format(post.created_at) + " " + t("news.source") + ": " + post.source
+							.row
+								.col-md-10
+									%p.post-date
+										%span.glyphicon.glyphicon-calendar
+											= match_date_format(post.created_at) + " " + t("news.source") + ": " + post.source
+								.col-md-3
+									= render_shareable :buttons=> ['facebook']
 							%br
 							%p.post-content
 								= post.content.gsub("\r\n","<br/>").html_safe
