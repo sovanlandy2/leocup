@@ -25,6 +25,9 @@ class ApplicationController < ActionController::Base
   private
 
     def set_locale
+      set_meta_tags fb: { 
+        app_id: "1576235856030025"
+      }
       I18n.locale = params[:locale] if params[:locale].present?
     end
     
