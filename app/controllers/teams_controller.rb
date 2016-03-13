@@ -7,8 +7,8 @@ class TeamsController < ApplicationController
 		@current_coach = @current_team.coach
 		@gallery_photos = @current_team.team_gallery_photos
 
-		image_url = @gallery_photos.first.url rescue nil
-		set_meta_tags og: { image: [image_url], title: @current_team.name}
+		image_url = @gallery_photos.first.photo.url rescue nil
+		set_meta_tags og: { image: image_url, title: @current_team.name}
 	end
 
 	def show
