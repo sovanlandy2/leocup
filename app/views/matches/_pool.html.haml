@@ -3,7 +3,7 @@
 - pools = tournament.pools
 
 - if pools.size == 2
-	.col-md-4
+	.col-xs-4
 		.list-group
 			.list-group-item.list-group-item-info
 				%p
@@ -12,7 +12,7 @@
 			- pools.first.teams.each do |team|
 				.list-group-item.list-group-item-default
 					%p.team-name= team.name
-	.col-md-4
+	.col-xs-4
 		.list-group
 			.list-group-item.list-group-item-danger
 				%p
@@ -22,7 +22,7 @@
 				.list-group-item.list-group-item-default
 					%p.team-name= team.name
 - else 
-	.col-md-8
+	.col-xs-8
 		.list-group
 			.list-group-item.list-group-item.default
 				%p.text-info.text-uppercase Data is not yet available
