@@ -19,9 +19,8 @@
         
       #navbar.navbar-collapse.collapse{"aria-expanded" => "false", :style => "height: 1px;"}
         %ul.nav.navbar-nav
-          - if !mobile_device?
-            %li#nav-home
-              = link_to t("menu.home"), "/", class: "text-uppercase"
+          %li#nav-home
+            = link_to t("menu.home"), "/", class: "text-uppercase"
           %li#nav-team
             = link_to t("menu.teams"), teams_path, class: "text-uppercase"
           %li#nav-result
