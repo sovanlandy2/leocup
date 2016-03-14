@@ -1,7 +1,7 @@
 %br
 .container.posts
 	.row
-		.col-md-8
+		.col-xs-8
 			.panel.panel-primary
 				.panel-heading
 					%p.page-title.text-center= t("news.title")
@@ -23,7 +23,7 @@
 							- post.post_photos.each do |photo|
 								= image_tag photo.photo.url(:medium)
 							%hr.divider
-		.col-md-4
+		.col-xs-4
 			.panel.panel-primary
 				.panel-heading
 					%p.post-heading-title= t("news.articles")
