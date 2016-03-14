@@ -1,7 +1,6 @@
 !!!
 %html
   %head
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %title= content_for?(:title) ? yield(:title) : 'Leo Cup National Volleyball 2016'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Leocup'}"}
     = stylesheet_link_tag 'application', media: 'all'
@@ -22,7 +21,7 @@
       = yield
       = render 'layouts/footer'
       = image_tag "logo_bottom.jpg", style: "width: 1736px;"
-      - if mobile_device?
-        :javascript
-          $(".navbar").removeClass("navbar-static-top");
-          $(".navbar").addClass("navbar-fixed-top");
+      / - if mobile_device?
+      /   :javascript
+      /     $(".navbar").removeClass("navbar-static-top");
+      /     $(".navbar").addClass("navbar-fixed-top");
