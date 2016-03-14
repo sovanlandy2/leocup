@@ -8,14 +8,14 @@
           %span.icon-bar
           %span.icon-bar
 
-        - if mobile_device?  
-          .navbar-brand
-            = link_to image_tag("logo_top.png", size: "50x60"), "/"
-          .navbar-brand
-            - if I18n.locale == :km
-              = link_to image_tag("en_flag.png", size: "25x30"), locale: "en"
-            - else
-              = link_to image_tag("km_flag.png", size: "25x30"), locale: "km"
+        / - if mobile_device?  
+        /   .navbar-brand
+        /     = link_to image_tag("logo_top.png", size: "50x60"), "/"
+        /   .navbar-brand
+        /     - if I18n.locale == :km
+        /       = link_to image_tag("en_flag.png", size: "25x30"), locale: "en"
+        /     - else
+        /       = link_to image_tag("km_flag.png", size: "25x30"), locale: "km"
         
       #navbar.navbar-collapse.collapse{"aria-expanded" => "false", :style => "height: 1px;"}
         %ul.nav.navbar-nav
@@ -28,10 +28,9 @@
             = link_to t("menu.result"), matches_path, class: "text-uppercase"
           %li#nav-news
             = link_to t("menu.news"), posts_path, class: "text-uppercase"
-        - if !mobile_device?  
-          %ul.nav.navbar-right
-            %li
-              - if I18n.locale == :km
-                = link_to image_tag("en_flag.png", size: "25x30"), locale: "en"
-              - else
-                = link_to image_tag("km_flag.png", size: "25x30"), locale: "km"
+        %ul.nav.navbar-right
+          %li
+            - if I18n.locale == :km
+              = link_to image_tag("en_flag.png", size: "25x30"), locale: "en"
+            - else
+              = link_to image_tag("km_flag.png", size: "25x30"), locale: "km"
