@@ -36,6 +36,6 @@
 				- g = gallery[i]
 				- i = i + 1
 				.col-md-3
-					%a{"data-gallery" => "", :href => g.photo.url}
+					%a{"data-gallery" => "", :href => g.photo.url(:medium)}
 						%img{:alt => "Photo", :src => g.photo.url(:medium)}
 			
