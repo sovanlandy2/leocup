@@ -1,7 +1,12 @@
 - if @teams.present?
-	.list-group
+	%ul.list-group
 		- @teams.each do |team|
-			= link_to team.name, select_team_teams_path(id: team.id), class: "list-group-item list-group-item-default team-name", id: "team_#{team.id}", remote: true, method: :get
+			%li.list-group-item.list-group-item-default
+				.div{style: "width: 100%;"}
+					.left{style: "float:left; width: 105px;"}
+						= render "share/fb_share_only", locals: {url: team_path(@current_team.id)}
+					.right
+						= link_to team.name, select_team_teams_path(id: team.id), class: "team-name", id: "team_#{team.id}", remote: true, method: :get
 
 - else
 	.well.text-info.team-name= t("team.no_result")

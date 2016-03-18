@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 	def index
-		@current_region = Region.first
-		@teams = @current_region.teams.includes(:coach, :players, [:region])
+		
+		@teams = Team.includes(:coach, :players, [:region])
 		                              .where(is_winner: true)
 		@current_team = @teams.first
 		@current_coach = @current_team.coach
