@@ -19,7 +19,7 @@ class TeamsController < ApplicationController
 		@current_coach = @current_team.coach
 		@gallery_photos = @current_team.team_gallery_photos
 
-		image_url = @current_team.avatar.url(:thumb) rescue nil
+		image_url = @current_team.avatar.url(:medium) rescue nil
 		set_meta_tags og: { image: image_url, title: @current_team.name, description: @current_team.description}
 		render :index
 	end
