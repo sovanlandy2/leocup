@@ -20,8 +20,6 @@
     .main-div
       = yield
       = render 'layouts/footer'
-      = image_tag "logo_bottom.jpg", style: "width: 1736px;"
-      / - if mobile_device?
-      /   :javascript
-      /     $(".navbar").removeClass("navbar-static-top");
-      /     $(".navbar").addClass("navbar-fixed-top");
+      .row
+        .col-xs-4.col-xs-offset-8
+          = image_tag "footer_logo.png", style: "width: 342px;"
