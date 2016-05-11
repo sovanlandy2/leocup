@@ -1,5 +1,5 @@
 .voting{
-	background-image: image-url("volleyball.png");
+	*background-image: image-url("volleyball.png");
 	height: 675px;
 	background-position: center;
 	padding: 20px;
@@ -8,19 +8,20 @@
 		width: 81%;
 		background-color: rgba(201, 153, 0, 0.8);
 		float: none;
-    margin: 0 auto;
-    h3 {
-    	color: white;
-  	}
-  	h4 {
-  		color: black;
-  	}
+	    margin: 0 auto;
+	    h3 {
+	    	color: white;
+	  	}
+	  	h4 {
+	  		color: black;
+	  	}
 	}
 
-	.vote-score {
+	.vote-result {
 		.row{
 			float: none;
-    	margin: 0 auto;
+    		margin: 0 auto;
+    		
 		}
 		.vote-normal {
 			background-image: image-url("btn_vote_normal.jpg")	;
@@ -30,8 +31,13 @@
 			background-image: image-url("btn_vote_leader.jpg")	;
 			
 		}
-		.btn-vote {
-			
+		.vote-score {
+			color: white;
+			font-size: 20px;
+		}
+		.vote-team-name {
+			color: white;
+			font-size: 20px;
 		}
 	}
 

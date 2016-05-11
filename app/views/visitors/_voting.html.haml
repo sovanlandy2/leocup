@@ -1,5 +1,28 @@
-.panel.voting
+.panel.voting#all_voting
 	.panel-header
-		
-			
-	.panel-body
+		%p Heading
+	.panel-body.vote-result
+		- @winning_teams.size.times do |i|
+			- teams = @winning_teams[i]
+			.row
+				.col-md-offset-2
+				- teams.each do |team|
+					- vote = TeamVote.where(team_id: team.id).count
+					.col-md-2.text-center.vote-normal
+						.row.vote-score
+							.col= (vote*100.00/@total_votes).to_s+"%" rescue '0.0%'
+						.row.vote-team-name
+							= link_to team.name, team_path(team), class: "teams team-name"
+
+
+		%br
+			#user_nav
+				- if current_user
+					Signed in as
+					%strong= current_user.name
+					= link_to "Sign out", signout_path, id: "sign_out"
+					= render "vote_now"
+				- else
+					= link_to "Sign in with Facebook to Start Voting", "/auth/facebook", id: "sign_in"
+
+

@@ -9,6 +9,7 @@ class Team < ActiveRecord::Base
 	has_many :team_pools
 	has_many :pools , through: :team_pools
 	has_many :gallery_photos
+	has_many :team_votes
 
 	accepts_nested_attributes_for :coach
 	accepts_nested_attributes_for :players
