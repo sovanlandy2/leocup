@@ -9,7 +9,9 @@ km:
     latest_result: "លទ្ធផលចុងក្រោយ"
     see_all_result: "មើលលទ្ធផលទាំងអស់"
     vote_question: "តើក្រុមណានឹងក្លាយជាម្ចាស់ជើងឯក LEO CUP NATIONAL VOLLEYBALL 2016"
-    join_vote: "សូមធ្វើការទស្សន៏ទាយដើម្បី៊ឱកាសឈ្នះរង្វាន់ពីស្រាបៀ LEO"
+    join_vote: "សូមធ្វើការទស្សន៏ទាយដើម្បីឱកាសឈ្នះរង្វាន់ពីស្រាបៀ LEO"
+    total_votes: "ចំនួនអ្នកទស្សន៏ទាយ"
+    sign_in_fb: "សូមទស្សន៏ទាយ ដោយ Login តាម Facebook"
   team:
     title: "ក្រុមប្រកួត"
     matches: "លទ្ឋផលប្រកួត"
