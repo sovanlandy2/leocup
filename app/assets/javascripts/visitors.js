@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('#vote_saved').hide();
     $('#myCarousel').carousel({interval: 5000});
     $('#nav-home').addClass('selected');
     
@@ -15,5 +16,6 @@ $(document).ready(function() {
         });
         var team_ids = arrayId.join(",");
         $.post("/team_votes?team_ids="+team_ids);
+        $('#vote_saved').show();
     });
 });

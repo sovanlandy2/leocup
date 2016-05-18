@@ -17,6 +17,8 @@
 						.row.text-center
 							= link_to team.name, team_path(team), class: "text-khmer", style: "color: white;"
 
+		%p.alert.alert-success#vote_saved
+			= "Votes have been updated, please refresh the page to see latest result."			
 		#start_vote					
 			%br
 				#user_nav
@@ -41,4 +43,4 @@
 							.col-xs-4.col-xs-offset-5.text-right
 								%p.text-khmer= "#{t 'home.total_votes'} : #{@total_votes}"
 
-
+		
