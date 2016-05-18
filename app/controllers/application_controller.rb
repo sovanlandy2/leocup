@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
       set_meta_tags fb: { 
         app_id: "1576235856030025"
       }
-      I18n.locale = params[:locale] if params[:locale].present?
+      I18n.locale = params[:locale] if params[:locale].present? rescue I18n.locale = :km
     end
     
     def default_url_options(options = {})
