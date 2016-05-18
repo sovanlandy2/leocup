@@ -3,14 +3,17 @@ $(document).ready(function() {
     $('#nav-home').addClass('selected');
     
 
-    $('.vote_team').click(function () {
+    $('.vote_team').click(function () {    
+    	$(this).toggleClass('active');
+    });
 
-    	$('.vote_team').each(function () {
-    		$(this).removeClass('active');
-    	});
-
-    	$(this).addClass('active');
-    	var team_id = $(this).attr('id').split("vote_team_")[1];
-    	$('#save_change').attr("href", "/team_votes?team_id=" + team_id);
+    $('#save_changes').click(function (e) {
+        var arrayId = [];
+        $('.vote_team.active').each( function () {
+            var id = $(this).attr('id').split('voteteam')[1];
+            arrayId.push(id);
+        });
+        var team_ids = arrayId.join(",");
+        $.post("/team_votes?team_ids="+team_ids);
     });
 });

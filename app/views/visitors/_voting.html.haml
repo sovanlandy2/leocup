@@ -2,6 +2,11 @@
 	.panel-header
 		%p Heading
 	.panel-body.vote-result
+		/set up the header
+		#question
+			%p#question_text.text-center.text-khmer-bold= t "home.vote_question"
+			%p#join_vote= t "home.join_vote"
+			%hr{style: "color: red;"}
 		- @winning_teams.size.times do |i|
 			- teams = @winning_teams[i]
 			.row
@@ -10,7 +15,7 @@
 					- vote = TeamVote.where(team_id: team.id).count
 					.col-md-2.text-center.vote-normal
 						.row.vote-score
-							.col= (vote*100.00/@total_votes).to_s+"%" rescue '0.0%'
+							.col= (vote*100.00/@total_votes).round(2).to_s+"%" rescue '0.0%'
 						.row.vote-team-name
 							= link_to team.name, team_path(team), class: "teams team-name"
 

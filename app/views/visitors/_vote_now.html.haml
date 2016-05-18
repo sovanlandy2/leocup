@@ -12,9 +12,12 @@
       .modal-body
         .list-group
           - @winning_teams_raw.each do |team|
-            .btn.list-group-item{id: "vote_team_#{team.id}", class: "vote_team"}= team.name
+            - if @current_voted_teams.include? team.id
+              .btn.list-group-item{id: "voteteam#{team.id}", class: "vote_team active"}= team.name
+            - else
+              .btn.list-group-item{id: "voteteam#{team.id}", class: "vote_team"}= team.name
             
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
         
-        = link_to "Save changes", "team_votes?", method: :post, id: "save_change", class: "btn btn-primary"
+        = link_to "Save your votes", root_path+"#all_voting", id: "save_changes", class: "btn btn-primary" #, data:{dismiss: "modal", type: "button"}

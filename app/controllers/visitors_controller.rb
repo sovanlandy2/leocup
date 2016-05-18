@@ -13,7 +13,7 @@ class VisitorsController < ApplicationController
 		@winning_teams = @winning_teams_raw.to_a.each_slice(5).to_a
 		@total_votes = TeamVote.count
 		if current_user.present?
-			@current_vote = TeamVote.where(user_id: current_user.id).first
+			@current_voted_teams = TeamVote.where(user_id: current_user.id).pluck(:team_id)
 		end
 		image_url = @gallery_photos.first.photo.url rescue nil
 		set_meta_tags og: { url: "http://www.leocupvolleyball.com", type: "website", title: "Leo Cup National Volleyball 2016",image: image_url, description: "See teams, matches result & schedule and gallery photos from the Leo Cup National Volleybal 2016"}
