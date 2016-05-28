@@ -1,12 +1,15 @@
 %link{:href => "//blueimp.github.io/Gallery/css/blueimp-gallery.min.css", :rel => "stylesheet"}
+.container
+	= render "voting"
 - if mobile_device?
 	%br
+
 - if I18n.locale == :km
 	= render "slider"
 - else
 	= render "eng_slider"
 .container
-	= render "voting"
+	
 	= render "latest_result"
 	= render "gallery"
 	/= render "division"
