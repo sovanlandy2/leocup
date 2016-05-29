@@ -1,9 +1,11 @@
-/ Button trigger modal
-%button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
-  - if @current_voted_teams.present?
-    See Your Votes
-  - else
-    Start Voting
+- if @current_voted_teams.present?
+  %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"} See Your Votes
+- else
+  .col-xs-9.alert.alert-info{style: "margin-bottom: 0px;"}
+    %p To vote please select up to 5 teams above. When you ready, click "Save Vote"
+  .col-xs-3
+    = link_to "Save Vote","/", class: "btn btn-lg btn-primary",id: "save_vote_btn", style: "height: 51px;"
+
 / Modal
 #myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-dialog.modal-lg{:role => "document"}
@@ -13,22 +15,8 @@
           %span{"aria-hidden" => "true"} ×
         %h4#myModalLabel.modal-title.text-center.text-khmer= t "home.vote_question"
       .modal-body
-        - if current_user && @current_voted_teams.present?
-          %p.alert.alert-info Here are the team you have voted for
-          .list-group
-            - Team.where(id: @current_voted_teams).each do |team|
-              .btn.list-group-item.text-khmer{id: "voteteam#{team.id}", class: "vote_team active"}= team.name
-              
-        - else
-          %p.alert.alert-info You may select up to 5 teams
-          .list-group
-            - @winning_teams_raw.each do |team|
-              - if @current_voted_teams.include? team.id
-                .btn.list-group-item.text-khmer{id: "voteteam#{team.id}", class: "vote_team active"}= team.name
-              - else
-                .btn.list-group-item.text-khmer{id: "voteteam#{team.id}", class: "vote_team"}= team.name
-            
+        .list-group
+          - Team.where(id: @current_voted_teams).each do |team|
+            .btn.list-group-item.text-khmer{id: "voteteam_x_#{team.id}", class: "vote_team active"}= team.name
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-        - if current_user && !@current_voted_teams.present?
-          = link_to "Save your votes", "", id: "save_changes", class: "btn btn-primary" , data:{dismiss: "modal", type: "button"}

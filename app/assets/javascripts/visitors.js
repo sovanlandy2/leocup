@@ -4,24 +4,25 @@ $(document).ready(function() {
     $('#nav-home').addClass('selected');
     
 
-    $('.vote_team').click(function () {    
-    	$(this).toggleClass('active');
+    $('.vote_team_btn').click(function () {    
+    	$(this).toggleClass('can_vote');
         var arrayId = [];
-        $('.vote_team.active').each( function () {
+        $('.vote_team_btn.can_vote').each( function () {
             var id = $(this).attr('id').split('voteteam')[1];
             arrayId.push(id);
         });
         var team_ids = arrayId.join(",");
         if (arrayId.length > 5){
-            $('#save_changes').hide();
+            alert("You may only select up to 5 teams");
+            $(this).toggleClass('can_vote');
         } else {
-            $('#save_changes').show();
+            $('#save_changes_btn').show();
         }
     });
 
-    $('#save_changes').click(function (e) {
+    $('#save_vote_btn').click(function (e) {
         var arrayId = [];
-        $('.vote_team.active').each( function () {
+        $('.vote_team_btn.can_vote').each( function () {
             var id = $(this).attr('id').split('voteteam')[1];
             arrayId.push(id);
         });
