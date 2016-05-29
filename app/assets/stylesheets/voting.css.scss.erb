@@ -59,6 +59,32 @@
 				text-decoration: none;
 			}
 		}
+
+		.vote-normal:hover {
+			background-image: image-url("btn_vote_leader.jpg")	;
+		}
+
+		.vote-selected {
+			background-image: image-url("btn_vote_leader.jpg")	;
+			background-size: 100%;
+			padding: 20px;
+			height: 120px;
+			width: 20%;
+
+			a:link {
+				color: white important;
+			}
+			
+			a:hover {
+				text-decoration: none;
+			}
+		}
+
+		.vote-selected a:link, .vote-normal a:hover, .vote-normal a:active {
+			color: white important;
+			text-decoration: none;
+		}
+
 		.vote-normal a:link, .vote-normal a:hover, .vote-normal a:active {
 			color: white important;
 			text-decoration: none;
