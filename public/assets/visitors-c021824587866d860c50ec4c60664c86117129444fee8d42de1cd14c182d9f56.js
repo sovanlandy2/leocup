@@ -1,1 +1,0 @@
-$(document).ready(function(){$("#myCarousel").carousel({interval:5e3}),$("#nav-home").addClass("selected")});
