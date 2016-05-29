@@ -33,6 +33,7 @@ en:
     join_vote: "Cast your vote to stand a chance to win reward form Leo Beer"
     total_votes: "Total Votes"
     sign_in_fb: "Sign in with Facebook to Start Voting"
+    to_vote: "To vote please select up to 5 teams above. When you're ready, click 'Save Vote'"
 
   team:
     title: "Teams"
