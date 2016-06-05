@@ -12,22 +12,44 @@
 			.col-xs-4.text-right
 				%p.region-name= match.team_right.region.name rescue "N/A"
 		.row.match-body
-			.col-md-4.text-left
-				.team-name
-					= link_to match.team_left.try(:name), team_path(match.team_left) rescue "N/A"
-			.col-md-4.text-center
-				%p.score= match.score.first
-				- scores = match.score[1..(match.score.size-1)]
-				- if scores.present?
-					- scores.each do |s|
-						%kbd{style: "margin-right: 3px"}= s
-				%p.match-status.text-khmer
-					- if match.is_completed?
-						= t "match.complete_status" 
-					- else
-						= t "match.incomplete_status"
-			.col-md-4.text-right
-				.team-name
-					= link_to match.team_right.try(:name), team_path(match.team_right) rescue "N/A"
+			- if mobile_device?
+				.row
+					.col-xs-12.text-center
+						.team-name
+							= link_to match.team_left.try(:name), team_path(match.team_left) rescue "N/A"
+				.row
+					.col-xs-12.text-center
+						%p.score= match.score.first
+						- scores = match.score[1..(match.score.size-1)]
+						- if scores.present?
+							- scores.each do |s|
+								%kbd{style: "margin-right: 3px"}= s
+						%p.match-status.text-khmer
+							- if match.is_completed?
+								= t "match.complete_status" 
+							- else
+								= t "match.incomplete_status"
+				.row
+					.col-xs-12.text-center
+						.team-name
+							= link_to match.team_right.try(:name), team_path(match.team_right) rescue "N/A"
+			- else
+				.col-md-4.text-left
+					.team-name
+						= link_to match.team_left.try(:name), team_path(match.team_left) rescue "N/A"
+				.col-md-4.text-center
+					%p.score= match.score.first
+					- scores = match.score[1..(match.score.size-1)]
+					- if scores.present?
+						- scores.each do |s|
+							%kbd{style: "margin-right: 3px"}= s
+					%p.match-status.text-khmer
+						- if match.is_completed?
+							= t "match.complete_status" 
+						- else
+							= t "match.incomplete_status"
+				.col-md-4.text-right
+					.team-name
+						= link_to match.team_right.try(:name), team_path(match.team_right) rescue "N/A"
 
 	
