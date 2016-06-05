@@ -1,0 +1,24 @@
+%br
+.row.alert.alert-info
+	.col-xs-10
+		%p.text-khmer{style: "margin-bottom: 0px;"}= t("home.to_vote_before_login")
+	
+- @winning_teams.size.times do |i|
+	- teams = @winning_teams[i]
+	.row
+		.col-md-offset-2
+		- teams.each do |team|
+			- vote = TeamVote.where(team_id: team.id).count
+			%a{href: "/auth/facebook"}
+				.col-xs-2.text-center.vote-normal
+					.row.vote-score.text-khmer-bold.text-center
+						= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
+					%br
+					.row.text-center
+						%p.text-khmer{style: "color:white;"}
+							= team.name
+%br
+	.row
+		.col-xs-4.col-xs-offset-4.text-center
+			= link_to image_tag( 'btn_loginFB.png'), '/auth/facebook'
+			

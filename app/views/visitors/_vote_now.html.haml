@@ -1,8 +1,8 @@
 - if @current_voted_teams.present?
   %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"} See Your Votes
 - else
-  .col-xs-9.alert.alert-info{style: "margin-bottom: 0px;"}
-    %p.text-khmer= t("home.to_vote")
+  .col-xs-8{style: "margin-bottom: 0px;"}
+    
   .col-xs-3
     = link_to "Save Vote","/", class: "btn btn-lg btn-primary",id: "save_vote_btn", style: "height: 51px;"
 

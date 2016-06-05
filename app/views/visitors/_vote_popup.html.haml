@@ -1,0 +1,29 @@
+- if !current_user.present? || !@current_voted_teams.present?
+  #votePopup.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog.modal-lg{:role => "document"}
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} &times;
+          %h4#myModalLabel.modal-title 
+            %p#question_text.text-center.text-khmer-bold= t "home.vote_question"
+            
+        .modal-body
+          .row
+            /.col-xs-offset-3.col-xs-4= image_tag "tshirt.png"
+            .col-xs-4.col-xs-offset-2
+              = image_tag "beer-pack.jpg"
+            .col-xs-4= image_tag "tshirt.png"
+            
+          .row
+            %br
+            %p#join_vote.text-center.text-khmer-bold= t "home.join_vote"
+            %p#join_vote.text-center.text-khmer-bold= t "home.to_vote_before_login"
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          - if !current_user
+            %a{href: "/auth/facebook"}
+              %button.btn.btn-primary{:type => "button"} Vote Now
+          - else
+            %a{href: "#all_voting"}
+              %button.btn.btn-primary{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"} Vote Now
