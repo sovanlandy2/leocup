@@ -2,9 +2,6 @@
 = render "vote_popup"
 .container
 	= render "voting"
-- if mobile_device?
-	%br
-
 - if I18n.locale == :km
 	= render "slider"
 - else
