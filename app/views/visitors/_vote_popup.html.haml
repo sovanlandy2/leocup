@@ -24,7 +24,7 @@
           %button.btn.btn-default.text-khmer-bold{style: "height: 60px; width: 100px;", "data-dismiss" => "modal", :type => "button"}= t 'home.close'
           - if !current_user
             %a{href: "/auth/facebook"}
-              %button.btn.btn-primary.text-khmer-bold{style: "font-weight: bold; height: 60px; width: 150px;", :type => "button"} Vote Now
+              %button.btn.btn-primary.text-khmer-bold{style: "font-weight: bold; height: 60px; width: 150px;", :type => "button"}= t 'home.vote_now'
           - else
             %a{href: "#all_voting"}
               %button.btn.btn-primary.text-khmer-bold{style: "font-weight: bold; height: 60px;width: 180px;", "aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}= t 'home.vote_now'
