@@ -9,29 +9,17 @@
 		.col-md-offset-2
 		- teams.each do |team|
 			- vote = TeamVote.where(team_id: team.id).count
-			.col-xs-2.text-center.vote-normal
-				.row.vote-score.text-khmer-bold.text-center
-					= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
-				%br
-				.row.text-center
-					%p.text-khmer{style: "color:white;"}= team.name
-%br
-	.row
-		.col-xs-4.col-xs-offset-4.text-center
-			%button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"} See Your Votes
-
-
-
-#myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-	.modal-dialog.modal-lg{:role => "document"}
-		.modal-content
-			.modal-header
-				%button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-					%span{"aria-hidden" => "true"} ×
-				%h4#myModalLabel.modal-title.text-center.text-khmer= t "home.vote_question"
-			.modal-body
-				.list-group
-					- Team.where(id: @current_voted_teams).each do |team|
-						.btn.list-group-item.text-khmer{id: "voteteam_x_#{team.id}", class: "vote_team active"}= team.name
-			.modal-footer
-				%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+			- if @current_voted_teams.include?(team.id)
+				.col-xs-2.text-center.vote-selected
+					.row.vote-score.text-khmer-bold.text-center
+						= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
+					%br
+					.row.text-center
+						%p.text-khmer{style: "color:white;"}= team.name
+			- else
+				.col-xs-2.text-center.vote-no-over
+					.row.vote-score.text-khmer-bold.text-center
+						= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
+					%br
+					.row.text-center
+						%p.text-khmer{style: "color:white;"}= team.name

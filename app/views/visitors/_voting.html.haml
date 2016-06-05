@@ -1,8 +1,12 @@
 .panel.voting#all_voting
 	.panel-body.vote-result
 		#question
-			%p#question_text.text-center.text-khmer-bold= t "home.vote_question"
-			%p#join_vote.text-center.text-khmer-bold= t "home.join_vote"
+			.row#question_text.text-center.text-khmer-bold{style: "font-weight: bold;"}
+				= "#{t 'home.vote_question'}" 
+			.row.text-center{style: "font-size: 24px; font-weight:bold;"}
+				="#{t 'home.leocup'} ?"
+			.row{style: "padding-top: 30px;"}	
+				%p#join_vote.text-center.text-khmer-bold= t "home.join_vote"
 		- if !current_user.present?
 			= render "voting_before_login"
 		- elsif !@current_voted_teams.present?
@@ -10,7 +14,7 @@
 		- else
 			= render "voting_after_casting"
 		.row
-			.col-xs-4.col-xs-offset-8.text-center
+			.col-xs-4.col-xs-offset-8.text-center.label
 				%h4
-					%span.label.text-khmer= "#{t 'home.total_votes'} : #{@total_votes}"
+					%span.text-khmer= "#{t 'home.total_votes'} : #{@total_votes}"
 		

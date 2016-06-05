@@ -8,7 +8,7 @@ class VisitorsController < ApplicationController
 		@current_tournament = Tournament.visible
 										.includes(:pools, :matches , :team_pools)
 										.current_tournaments.first || Tournament.first
-		@gallery_photos = GalleryPhoto.order("created_at desc").limit(30)
+		@gallery_photos = GalleryPhoto.order("created_at desc").limit(16)
 		@winning_teams_raw = Team.where(is_winner: true)
 		@winning_teams = @winning_teams_raw.to_a.each_slice(5).to_a
 		@total_votes = TeamVote.count

@@ -26,15 +26,19 @@ en:
     result: "Matches & Result"
     news: "News"
   home:
+    leocup: "LEO CUP NATIONAL VOLLEYBALL 2016"
     gallery: "Gallery Photos from Tournament"
     latest_result: "Latest Results"
     see_all_result: "See All Results"
-    vote_question: "Which team will become the champion of LEO CUP NATIONAL VOLLEYBALL 2016 ?"
-    join_vote: "Cast your vote to stand a chance to win reward form Leo Beer"
+    vote_question: "WHICH TEAM WILL BECOME THE CHAMPION OF"
+    join_vote: "Cast your vote to stand a chance to win 5 reward form Leo Beer"
     total_votes: "Total Votes"
     sign_in_fb: "Sign in with Facebook to Start Voting"
-    to_vote: "To vote please select up to 5 teams above. When you're ready, click 'Save Vote'"
-
+    to_vote: "To vote please select up to 5 teams above. When you're ready, click Confirm Vote"
+    welcome: Welcome
+    vote_now: Join Voting
+    close: Close
+    vote: Confirm Vote
   team:
     title: "Teams"
     matches: "Matches"

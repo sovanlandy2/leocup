@@ -3,27 +3,28 @@
     .modal-dialog.modal-lg{:role => "document"}
       .modal-content
         .modal-header
-          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %button.btn.btn-lg.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
             %span{"aria-hidden" => "true"} &times;
           %h4#myModalLabel.modal-title 
-            %p#question_text.text-center.text-khmer-bold= t "home.vote_question"
+            .row#question_text.text-center.text-khmer-bold{style: "font-weight: bold;font-size: 22px;"}
+              = "#{t 'home.vote_question'}" 
+            .row.text-center{style: "font-size: 22px; font-weight:bold;"}
+              ="#{t 'home.leocup'} ?"
             
-        .modal-body
+        .modal-body{style: "padding-top: 0px;"}
           .row
-            /.col-xs-offset-3.col-xs-4= image_tag "tshirt.png"
-            .col-xs-4.col-xs-offset-2
-              = image_tag "beer-pack.jpg"
-            .col-xs-4= image_tag "tshirt.png"
-            
+            = image_tag "VOTE.jpeg"            
           .row
             %br
-            %p#join_vote.text-center.text-khmer-bold= t "home.join_vote"
-            %p#join_vote.text-center.text-khmer-bold= t "home.to_vote_before_login"
+            %p#join_vote.text-center.text-khmer-bold{style: "font-size: 18px; font-weight:bold;"}
+              = t "home.join_vote"
+            %p#join_vote.text-center.text-khmer-bold{style: "font-size: 16px; font-weight:bold;"}
+              = t "home.to_vote_before_login"
         .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-default.text-khmer-bold{style: "height: 60px; width: 100px;", "data-dismiss" => "modal", :type => "button"}= t 'home.close'
           - if !current_user
             %a{href: "/auth/facebook"}
-              %button.btn.btn-primary{:type => "button"} Vote Now
+              %button.btn.btn-primary.text-khmer-bold{style: "font-weight: bold; height: 60px; width: 150px;", :type => "button"} Vote Now
           - else
             %a{href: "#all_voting"}
-              %button.btn.btn-primary{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"} Vote Now
+              %button.btn.btn-primary.text-khmer-bold{style: "font-weight: bold; height: 60px;width: 180px;", "aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}= t 'home.vote_now'
