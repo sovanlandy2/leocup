@@ -31,10 +31,12 @@ en:
     latest_result: "Latest Results"
     see_all_result: "See All Results"
     vote_question: "WHICH TEAM WILL BECOME THE CHAMPION OF"
-    join_vote: "Cast your vote to stand a chance to win 5 reward form Leo Beer"
+    join_vote: "Cast your vote to stand a chance to win 5 boxes of Leo Beer and 10 awesome T-shirt reward from Leo Beer"
     total_votes: "Total Votes"
     sign_in_fb: "Sign in with Facebook to Start Voting"
-    to_vote: "To vote please select up to 5 teams above. When you're ready, click Confirm Vote"
+    to_vote_before_login: "To be eligible for voting, please register via Facebook Login"
+    to_vote_casting_vote: "To vote, please select 5 teams from the boxes below and click Comfirm Vote button"
+    to_vote_after_casting: "Thank you for casting your vote! Good luck!"
     welcome: Welcome
     vote_now: Join Voting
     close: Close
