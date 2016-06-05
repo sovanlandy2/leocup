@@ -3,15 +3,13 @@
 - else
 	.match
 		.row.match-header
-			.col-xs-3.text-left
+			.col-xs-4.text-left
 				%p.region-name= match.team_left.region.name rescue "N/A"
-			.col-xs-2.text-left	
+			.col-xs-4.text-center	
 				- d = match.match_date
 				-if d.present?
 					%p.match-time= match_date_format(d)
-			.col-xs-2.text-center
-				%p.text-khmer.date-style= "#{match.stage} "
-			.col-xs-5.text-right
+			.col-xs-4.text-right
 				%p.region-name= match.team_right.region.name rescue "N/A"
 		.row.match-body
 			.col-md-4.text-left
