@@ -15,4 +15,8 @@ class TeamVotesController < ApplicationController
 		end
 		redirect_to root_url+"#all_voting"
 	end	
+
+	def winner
+		@users = User.all 
+	end
 end

@@ -16,8 +16,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :team_votes, only: [:create]
+  resources :team_votes, only: [:create] do 
+    get :winner, on: :collection
+  end
 
+  match 'winner', to: 'team_votes#winner', via: [:get]
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get]
   match 'auth/failure', to: redirect('/'), via: [:get]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get]
