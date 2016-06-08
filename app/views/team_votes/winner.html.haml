@@ -1,6 +1,6 @@
 %script{:src => "https://frzr.js.org/frzr.min.js"}
 .container{style: 'padding-top:300px;'}
-  .panel{style: 'background-color: rgba(255,255,255,0.97);'}
+  .panel{style: 'background-color: rgba(255,255,255,1);'}
     .panel-heading.text-center.text-uppercase
       %h2 Leocup National Volleyball 2016 Lucky Draw
     .panel-body{style: 'padding-left:85px;'}
@@ -10,19 +10,20 @@
         .panel-body
           .row
             .col-xs-2
-              .btn.btn-success.winnter-btn
+              .btn.btn-primary.winner-btn
                 %p winner1
+                = image_tag 'missing-image-640x360.png', style: "width:100px; height: 90px;"
             .col-xs-2
-              .btn.btn-success.winnter-btn
+              .btn.btn-primary.winner-btn
                 %p winner2
             .col-xs-2
-              .btn.btn-success
+              .btn.btn-primary.winner-btn
                 %p winner3
             .col-xs-2
-              .btn.btn-success
+              .btn.btn-primary.winner-btn
                 %p winner4
             .col-xs-2
-              .btn.btn-success
+              .btn.btn-primary.winner-btn
                 %p winner5
       .panel
         .panel-heading
@@ -30,19 +31,19 @@
         .panel-body
           .row
             .col-xs-2
-              .btn.btn-success
+              .btn.btn-primary.winner-btn
                 %p winner1
             .col-xs-2
-              .btn.btn-success
+              .btn.btn-primary.winner-btn
                 %p winner2
             .col-xs-2
-              .btn.btn-success
+              .btn.btn-primary.winner-btn
                 %p winner3
             .col-xs-2
-              .btn.btn-success
+              .btn.btn-primary.winner-btn
                 %p winner4
             .col-xs-2
-              .btn.btn-success
+              .btn.btn-primary.winner-btn
                 %p winner5
       .panel
         .panel-heading

@@ -1,6 +1,25 @@
 $(document).ready(function() {
+  var users = gon.users;
+  var images = gon.images;
+  var already_won = [];
+  $('.winner-btn').click(
+    function(btn){
+      var total = users.length;
+      var index = Math.round(Math.random()*total);;
+      while(!$.inArray(index, already_won)){
+        index = Math.round(Math.random()*total);
+      }
+      var content = '<p>' + users[index] + '</p>';
+      content = content + '<img src ="'+ getImage(images[index])+'">';
+      $(this).html(content);
+      $(this).removeClass('btn-primary');
+      $(this).addClass('btn-success');
+    }
+  );
 
-  
+  function getImage(uid){
+    return 'http://graph.facebook.com/v2.6/'+uid+ '/picture?width=100&height=100';
+  }
   var navigation = null;
   (navigation = document.getElementById('navigation-container')).parentNode.removeChild(navigation);
   
@@ -8,7 +27,7 @@ $(document).ready(function() {
   var mount = frzr.mount;
   var unmount = frzr.unmount;
   var List = frzr.List;
-  var users = gon.users;
+  
   var data = new Array(users.length);
   var wrapper = el('div', {class: 'item-wrapper'});
 

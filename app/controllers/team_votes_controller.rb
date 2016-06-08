@@ -17,6 +17,7 @@ class TeamVotesController < ApplicationController
 	end	
 
 	def winner
-		gon.users = User.pluck(:name) 
+		gon.users = User.order('id desc').pluck(:name) 
+		gon.images = User.order('id desc').pluck(:uid)
 	end
 end
