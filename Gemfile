@@ -30,7 +30,7 @@ gem 'devise'
 gem 'figaro'
 
 gem 'globalize', '~> 5.0.0'
-
+gem 'gon'
 
 gem 'haml-rails'
 gem 'meta-tags'

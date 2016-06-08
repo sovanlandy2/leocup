@@ -1,2 +1,114 @@
-- @users.all.each do |user|
-	= image_tag "http://graph.facebook.com/v2.6/#{user.uid}/picture"
+%script{:src => "https://frzr.js.org/frzr.min.js"}
+.container{style: 'padding-top:300px;'}
+  .panel{style: 'background-color: rgba(255,255,255,0.97);'}
+    .panel-heading.text-center.text-uppercase
+      %h2 Leocup National Volleyball 2016 Lucky Draw
+    .panel-body{style: 'padding-left:85px;'}
+      .panel
+        .panel-heading
+          %h3.text-center T-Shirt Winners
+        .panel-body
+          .row
+            .col-xs-2
+              .btn.btn-success.winnter-btn
+                %p winner1
+            .col-xs-2
+              .btn.btn-success.winnter-btn
+                %p winner2
+            .col-xs-2
+              .btn.btn-success
+                %p winner3
+            .col-xs-2
+              .btn.btn-success
+                %p winner4
+            .col-xs-2
+              .btn.btn-success
+                %p winner5
+      .panel
+        .panel-heading
+          %h3.text-center Leobeer Winners
+        .panel-body
+          .row
+            .col-xs-2
+              .btn.btn-success
+                %p winner1
+            .col-xs-2
+              .btn.btn-success
+                %p winner2
+            .col-xs-2
+              .btn.btn-success
+                %p winner3
+            .col-xs-2
+              .btn.btn-success
+                %p winner4
+            .col-xs-2
+              .btn.btn-success
+                %p winner5
+      .panel
+        .panel-heading
+          %h3.text-center Lucky Draw
+        .panel-body
+          #item-wrapper
+  
+
+  :javascript
+    var setChildren = frzr.setChildren;
+    var List = frzr.List;
+      
+    function animatedList (View, key, initData) {
+      var list = new List(View, key, initData, true);
+      var originalUpdate = list.update;
+    
+      list.update = function update (data) {
+        var parent = list.parent;
+      
+        onbefore && onbefore(list.views);
+    
+        originalUpdate.call(list, data, function (added, updated, removed) {
+          parent && setChildren(parent, list.views.concat(removed));
+          onafter && onafter(added, updated, removed);
+        });
+      }
+      return list;
+    
+      function onbefore (views) {
+        var parent = list.parent;
+    
+        views.forEach(function (view) {
+          view.startPos = view.el.getBoundingClientRect();
+        });
+      }
+    
+      function onafter (added, updated, removed) {
+        var parent = list.parent;
+    
+        added.forEach(function (view) {
+          view.el.style.opacity = 0;
+          setTimeout(function () {
+            view.el.style.transition = 'opacity 1s';
+            view.el.style.opacity = 1;
+          }, 0);
+        });
+        updated.concat(removed).forEach(function (view) {
+          var endPos = view.el.getBoundingClientRect();
+          var diffPos = [
+            view.startPos.left - endPos.left,
+            view.startPos.top - endPos.top
+          ];
+          view.el.style.transition = '';
+          view.el.style.transform = 'translate(' + diffPos.join('px,') + 'px)';
+        });
+        updated.forEach(function (view) {
+          setTimeout(function () {
+            view.el.style.transition = 'transform 1s';
+            view.el.style.transform = '';
+          }, 0);
+        });
+        removed.forEach(function (view) {
+          setTimeout(function () {
+            view.el.style.transition = 'opacity 1s';
+            view.el.style.opacity = 0;
+          }, 0);
+        });
+      }
+    }

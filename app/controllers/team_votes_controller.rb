@@ -17,6 +17,6 @@ class TeamVotesController < ApplicationController
 	end	
 
 	def winner
-		@users = User.all 
+		gon.users = User.pluck(:name) 
 	end
 end

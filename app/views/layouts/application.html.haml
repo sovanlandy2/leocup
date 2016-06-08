@@ -2,6 +2,7 @@
 %html
   %head
     %title= content_for?(:title) ? yield(:title) : 'Leo Cup National Volleyball 2016'
+    = include_gon
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Leocup'}"}
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
@@ -11,6 +12,7 @@
     %script{:src => "//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"}
     = render 'layouts/google_analytic'
     = favicon_link_tag
+
   %body
     = render 'layouts/fb_share'
     = render 'layouts/google_analytic_pageview'

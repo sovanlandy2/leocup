@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :team_votes, only: [:create] do 
     get :winner, on: :collection
+    get :winner_picture, on: :collection
   end
 
   match 'winner', to: 'team_votes#winner', via: [:get]
