@@ -10,7 +10,7 @@
 		- teams.each do |team|
 			- vote = TeamVote.where(team_id: team.id).count
 			%a{href: "/auth/facebook"}
-				.col-xs-2.text-center.vote-normal
+				.col-xs-3.text-center.vote-normal
 					.row.vote-score.text-khmer-bold.text-center
 						= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
 					%br
