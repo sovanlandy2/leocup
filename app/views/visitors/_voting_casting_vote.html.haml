@@ -5,10 +5,9 @@
 - @winning_teams.size.times do |i|
 	- teams = @winning_teams[i]
 	.row
-		.col-md-offset-2
 		- teams.each do |team|
 			- vote = TeamVote.where(team_id: team.id).count
-			.col-xs-2.text-center.vote-normal.vote_team_btn{id: "voteteam#{team.id}", style: "cursor:pointer"}
+			.col-xs-3.text-center.vote-normal.vote_team_btn{id: "voteteam#{team.id}", style: "cursor:pointer"}
 				.row.vote-score.text-khmer-bold.text-center
 					= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
 				%br
