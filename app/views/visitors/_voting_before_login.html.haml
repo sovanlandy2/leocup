@@ -6,7 +6,6 @@
 - @winning_teams.size.times do |i|
 	- teams = @winning_teams[i]
 	.row
-		.col-md-offset-2
 		- teams.each do |team|
 			- vote = TeamVote.where(team_id: team.id).count
 			%a{href: "/auth/facebook"}
