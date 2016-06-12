@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509024528) do
+ActiveRecord::Schema.define(version: 20160612183418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -278,16 +278,18 @@ ActiveRecord::Schema.define(version: 20160509024528) do
   add_index "team_translations", ["team_id"], name: "index_team_translations_on_team_id", using: :btree
 
   create_table "team_votes", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "team_id"
     t.integer  "facebook_id"
     t.integer  "user_id"
+    t.integer  "tournament_id"
   end
 
   add_index "team_votes", ["facebook_id"], name: "index_team_votes_on_facebook_id", using: :btree
   add_index "team_votes", ["team_id", "facebook_id"], name: "index_team_votes_on_team_id_and_facebook_id", unique: true, using: :btree
   add_index "team_votes", ["team_id"], name: "index_team_votes_on_team_id", using: :btree
+  add_index "team_votes", ["tournament_id"], name: "index_team_votes_on_tournament_id", using: :btree
   add_index "team_votes", ["user_id"], name: "index_team_votes_on_user_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
