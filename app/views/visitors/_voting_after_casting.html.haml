@@ -7,7 +7,7 @@
 	- teams = @winning_teams[i]
 	.row
 		- teams.each do |team|
-			- vote = TeamVote.where(team_id: team.id).count
+			- vote = TeamVote.where(team_id: team.id, tournament_id: @current_tournament.id).count
 			- if @current_voted_teams.include?(team.id)
 				.col-xs-3.text-center.vote-selected
 					.row.vote-score.text-khmer-bold.text-center

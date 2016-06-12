@@ -6,7 +6,7 @@
 	- teams = @winning_teams[i]
 	.row
 		- teams.each do |team|
-			- vote = TeamVote.where(team_id: team.id).count
+			- vote = TeamVote.where(team_id: team.id, tournament_id: @current_tournament.id).count
 			.col-xs-3.text-center.vote-normal.vote_team_btn{id: "voteteam#{team.id}", style: "cursor:pointer"}
 				.row.vote-score.text-khmer-bold.text-center
 					= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
