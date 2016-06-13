@@ -35,7 +35,7 @@ en:
     total_votes: "Total Votes"
     sign_in_fb: "Sign in with Facebook to Start Voting"
     to_vote_before_login: "To be eligible for voting, please register via Facebook Login"
-    to_vote_casting_vote: "To vote, please select 5 teams from the boxes below and click Comfirm Vote button"
+    to_vote_casting_vote: "To vote, please select 4 teams from the boxes below and click Comfirm Vote button"
     to_vote_after_casting: "Thank you for casting your vote! Good luck!"
     welcome: Welcome
     vote_now: Join Voting
