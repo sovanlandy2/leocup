@@ -7,6 +7,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'omniauth-facebook'
+gem 'rest-client'
 
 group :development, :test do
   gem 'byebug'
@@ -36,7 +37,7 @@ gem 'haml-rails'
 gem 'meta-tags'
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '< 2.0'
-
+gem "koala", "~> 2.2"
 gem 'pg'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x'
 gem 'simple_form'
