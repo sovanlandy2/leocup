@@ -10,19 +10,19 @@
 			- vote = TeamVote.where(team_id: team.id, tournament_id: @current_tournament.id).count
 			- if team.has_droppedout?
 				- if @current_voted_teams.include?(team.id)
-					.col-xs-3.text-center.vote-selected
-						.row.vote-score.text-khmer-bold.text-center
+					.col-xs-3.text-center.vote-selected.vote-dropout
+						.row.vote-score.text-khmer-bold.text-center{style: "color:black!important;"}
 							= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
 						%br
 						.row.text-center
-							%p.text-khmer{style: "color:white;"}= team.name
+							%p.text-khmer{style: "color:black;"}= team.name
 				- else
-					.col-xs-3.text-center.vote-no-over
-						.row.vote-score.text-khmer-bold.text-center
+					.col-xs-3.text-center.vote-dropout
+						.row.vote-score.text-khmer-bold.text-center{style: "color:black!important;"}
 							= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
 						%br
 						.row.text-center
-							%p.text-khmer{style: "color:white;"}= team.name
+							%p.text-khmer{style: "color:black!important;"}= team.name
 			- else
 				- if @current_voted_teams.include?(team.id)
 					.col-xs-3.text-center.vote-selected.vote-dropout
