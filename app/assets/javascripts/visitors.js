@@ -13,8 +13,8 @@ $(document).ready(function() {
             arrayId.push(id);
         });
         var team_ids = arrayId.join(",");
-        if (arrayId.length > 2){
-            alert("You may only select up to 2 teams");
+        if (arrayId.length > 1){
+            alert("You may only select up to 1 team");
             $(this).toggleClass('can_vote');
         } else {
             $('#save_changes_btn').show();
@@ -28,7 +28,7 @@ $(document).ready(function() {
             arrayId.push(id);
         });
         var team_ids = arrayId.join(",");
-        if (arrayId.length<=2){
+        if (arrayId.length<=1){
             $.post("/team_votes?team_ids="+team_ids);
             $('#vote_saved').show();
         }
