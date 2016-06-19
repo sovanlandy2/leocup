@@ -7,7 +7,7 @@
 	.row
 		- teams.each do |team|
 			- vote = TeamVote.where(team_id: team.id, tournament_id: @current_tournament.id).count
-			- if team.has_dropped_out
+			- if team.has_droppedout
 				.col-xs-3.text-center.vote-normal.vote-dropout
 					.row.vote-score.text-khmer-bold.text-center
 						= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
