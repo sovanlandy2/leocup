@@ -15,6 +15,7 @@ ActiveAdmin.register Team do
       f.input :description, label: "Description (translated: #{I18n.locale} )"
       f.input :avatar, :as => :file , :hint => f.image_tag(f.object.avatar.url(:thumb))
       f.input :is_winner
+      f.input :has_droppedout
     end
     
     f.inputs "Team's Coach" do

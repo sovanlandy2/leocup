@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616225812) do
+ActiveRecord::Schema.define(version: 20160618105404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -303,6 +303,7 @@ ActiveRecord::Schema.define(version: 20160616225812) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.boolean  "is_winner",           default: false
+    t.boolean  "has_droppedout",      default: false
   end
 
   add_index "teams", ["name"], name: "index_teams_on_name", using: :btree

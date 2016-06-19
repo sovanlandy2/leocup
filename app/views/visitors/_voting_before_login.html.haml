@@ -9,13 +9,22 @@
 		- teams.each do |team|
 			- vote = TeamVote.where(team_id: team.id, tournament_id: @current_tournament.id).count
 			%a{href: "/auth/facebook"}
-				.col-xs-3.text-center.vote-normal
-					.row.vote-score.text-khmer-bold.text-center
-						= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
-					%br
-					.row.text-center
-						%p.text-khmer{style: "color:white;"}
-							= team.name
+				- if team.has_droppedout?
+					.col-xs-3.text-center.vote-normal.vote-dropout
+						.row.vote-score.text-khmer-bold.text-center
+							= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
+						%br
+						.row.text-center
+							%p.text-khmer{style: "color:white;"}
+								= team.name
+				- else
+					.col-xs-3.text-center.vote-normal
+						.row.vote-score.text-khmer-bold.text-center
+							= (vote*100/@total_votes).to_s+"%" rescue '0.0%'
+						%br
+						.row.text-center
+							%p.text-khmer{style: "color:white;"}
+								= team.name
 %br
 	.row
 		.col-xs-4.col-xs-offset-4.text-center
