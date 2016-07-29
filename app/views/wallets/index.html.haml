@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title= content_for?(:title) ? yield(:title) : 'Wallet Test App'
+    = include_gon
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Leocup'}"}
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = javascript_include_tag params[:controller] 
+    = display_meta_tags site: 'Wallet Test App'
+    = csrf_meta_tags
+    %script{:src => "//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"}
+    
+    
+  %body
+    .row
+      .col-md-6
+        %p this is web view html code
+      .col-md-6
+        = link_to image_tag("add-to-apple-wallet-logo.png", width: 100), wallets_getpass_path
