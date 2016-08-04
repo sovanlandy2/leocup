@@ -4,6 +4,6 @@ class WalletsController < ApplicationController
 	end
 
 	def getpass
-		send_file Rails.public_path+ "amazongc.pkpass", type: 'application/vnd.apple.pkpass', disposition: 'attachment', filename: "pass.pkpass"
+		send_file Rails.public_path+ "testimage.jpg", type: 'image/jpg', disposition: 'attachment', filename: "testimage.jpg"
 	end
 end
