@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>
+      <%= content_for?(:title) ? yield(:title) : 'Wallet Test App' %>
+    </title>
+    <%= include_gon %>
+    <meta content="<%= content_for?(:description) ? yield(:description) : 'Leocup' %>" name="description"/>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag params[:controller]  %>
+    <%= display_meta_tags site: 'Wallet Test App' %>
+    <%= csrf_meta_tags %>
+    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="https://apis.google.com/js/plusone.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-md-6">
+        <p>this is web view html code</p>
+      </div>
+      <div class="col-md-6">
+        <%= link_to image_tag("add-to-apple-wallet-logo.png", width: 100), wallets_getpass_path %>
+      </div>
+
+      <div id="save to android pay">
+        <g:savetowallet jwt="<%= @jwt%>" onsuccess="successHandler"
+              onfailure="failureHandler" size="small" theme="light" ></g:savetowallet>
+      </div>
+    </div>
+  </body>
+</html>

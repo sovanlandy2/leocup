@@ -8,6 +8,9 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'omniauth-facebook'
 gem 'rest-client'
+gem 'google-api-client', '~> 0.9'#, :require => 'google/api_client'
+gem 'signet'
+gem 'jwt'
 
 group :development, :test do
   gem 'byebug'
