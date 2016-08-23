@@ -46,4 +46,6 @@ Rails.application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  ENV['SSL_CERT_FILE'] = "/Users/sovanlan/rails_project/cacert.pem"
 end
