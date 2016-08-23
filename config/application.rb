@@ -27,5 +27,6 @@ module Leocup
     config.i18n.fallbacks = true
     config.i18n.available_locales = [:km, :en]
     config.i18n.default_locale = :km
+    config.web_console.whitelisted_ips = '192.168.0.0/16'
   end
 end

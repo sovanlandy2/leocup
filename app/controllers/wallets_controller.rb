@@ -180,7 +180,7 @@ class WalletsController < ApplicationController
 		   "payload" => {
 		     "giftCardObjects" => [gc_object]
 		   },
-		   "origins"=> ['http://localhost:3000/wallets']
+		   "origins"=> ['http://192.168.0.199:3000']
 		}
 		private_key = Google::APIClient::KeyUtils.load_from_pkcs12('/Users/sovanlan/Downloads/WalletGC-1b9fd68f24c5.p12', 'notasecret')
 		jwtEncoded = JWT.encode(a, private_key, "RS256")
@@ -207,7 +207,7 @@ class WalletsController < ApplicationController
 		giftcard_class = generate_class('sovanlandy', 'DummyGCClass')
 		# Makes an API call to insert a new loyalty or offer class
 		
-		
+		#binding.pry
 		#data = RestClient.post 'https://www.googleapis.com/walletobjects/v1/giftCardClass', giftcard_class.to_json , {:Authorization => 'Bearer #{access_token}', :content_type => :json, :accept => :json}
 		#data = JSON.parse(data);
 		
